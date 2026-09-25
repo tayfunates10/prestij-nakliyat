@@ -32,3 +32,9 @@ Kullanıcının örneğindeki pazarlama metinleri korunmuştur; bunlar bağıms�
 Geniş ekranda beş sütun; daha dar ekranlarda üç, iki ve tek sütun kullanılır. Altın çerçeve ışıkları ve kart üzerine gelindiğinde hafif yükselme efekti vardır. Hareket azaltma tercihi desteklenir.
 
 Her Detayları İncele düğmesi hizmet açıklamasını yerel bir dialog içinde açar. Kapat düğmesi, Escape ve pencere dışına tıklama desteklenir. Kapanışta klavye odağı açan düğmeye döner. Bilgi ve fiyat teklifi bağlantısı mevcut telefon numarasını kullanır.
+
+## Neden Prestij — dördüncü bölüm
+
+`#neden-prestij` bölümünde referanstaki büyük logo ve altı avantaj bulunur: %100 Güvenli Taşıma, Profesyonel Ekip, Zamanında Teslimat, Uygun Fiyat, Sigortalı Taşıma, 7/24 İletişim. Logo ve ikonlar sağlanan `assets/trust-reference.png` görselinden SVG görüntü alanlarıyla gösterilir. Metinler HTML olarak yazılmıştır. Referanstaki hizmet beyanları kullanıcı tarafından sağlanan içerik olarak korunmuştur.
+
+Altın ayırıcı çizgiler ve ışık efektleri CSS ile oluşturulmuştur. Yerleşim masaüstünde altı, tablette üç, telefonda iki sütundur. Hareket azaltma tercihi desteklenir. 7/24 İletişim başlığı mevcut telefon bağlantısını kullanır.
