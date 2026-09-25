@@ -9,9 +9,11 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ctext x='8' y='25' font-family='Arial' font-weight='bold' font-size='26' fill='%23f7c54b'%3EP%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="services.css">
   <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
   <script src="script.js" defer></script>
   <script src="hero.js" defer></script>
+  <script src="services.js" defer></script>
 </head>
 <body>
   <header class="site-header" id="ana-sayfa">
@@ -104,6 +106,73 @@
         <button class="hero-pause" type="button" aria-label="Otomatik geçişi duraklat" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
       </div>
     </section>
+    <section class="services" id="hizmetlerimiz" aria-labelledby="services-title">
+      <header class="services-heading">
+        <p class="section-eyebrow"><span>HİZMETLERİMİZ</span></p>
+        <h2 id="services-title">Her Taşımada Aynı <span class="gold-text">Prestij</span></h2>
+        <p class="services-intro">Zonguldak genelinde evden eve nakliyat, ofis taşımacılığı, mobilya montajı ve daha fazlası…<br>Eşyalarınızı profesyonel ekibimizle, güvenle yeni adresinize taşıyoruz.</p>
+      </header>
+      <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="icon-office" viewBox="0 0 40 40"><path d="M14 10V6h12v4" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><rect x="2" y="10" width="36" height="28" rx="4" fill="currentColor"/><path d="M2 23h36" stroke="#080704" stroke-width="2"/><rect x="16" y="19" width="8" height="8" rx="2" fill="#080704"/></symbol>
+        <symbol id="icon-tools" viewBox="0 0 40 40"><path d="m25 3-5 5 2 7 7 2 5-5c2 10-6 14-12 10L9 36a5 5 0 0 1-7-7l14-13C12 9 16 1 25 3Z" fill="currentColor"/><path d="m7 2 6 5-2 5 26 23-4 4L9 13l-5-1-4-7Z" fill="currentColor" stroke="#080704" stroke-width="1.5"/><circle cx="6" cy="32" r="1.5" fill="#080704"/></symbol>
+        <symbol id="icon-building" viewBox="0 0 40 40"><path d="M3 2h18v36H3Zm20 10h12v26H23ZM0 36h40v4H0Z" fill="currentColor"/><path d="M8 7h3v4H8Zm7 0h3v4h-3ZM8 15h3v4H8Zm7 0h3v4h-3ZM8 23h3v4H8Zm7 0h3v4h-3ZM9 31h7v7H9Zm18-14h4v4h-4Zm0 8h4v4h-4Zm0 8h4v5h-4Z" fill="#080704"/></symbol>
+      </svg>
+      <div class="service-grid">
+        <article class="service-card">
+          <svg class="service-photo" viewBox="44 314 307 269" role="img" aria-label="Prestij üniformalı çalışan evde taşıma kolisi taşıyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <div class="service-body">
+            <span class="service-icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
+            <h3>Evden Eve Nakliyat</h3>
+            <p>Eşyalarınız profesyonel ekibimizle güvenle yeni yuvanıza taşınır.</p>
+            <button class="service-details" type="button" data-service="home" aria-haspopup="dialog" aria-label="Evden Eve Nakliyat detaylarını incele">Detayları İncele<svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="service-card">
+          <svg class="service-photo" viewBox="368 314 303 269" role="img" aria-label="Ofiste taşınmaya hazırlanmış Prestij kolileri ve paketlenmiş mobilyalar"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <div class="service-body">
+            <span class="service-icon"><svg aria-hidden="true"><use href="#icon-office"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
+            <h3>Ofis Taşımacılığı</h3>
+            <p>İşinizi aksatmadan, hızlı ve planlı ofis taşıma hizmetleri.</p>
+            <button class="service-details" type="button" data-service="office" aria-haspopup="dialog" aria-label="Ofis Taşımacılığı detaylarını incele">Detayları İncele<svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="service-card">
+          <svg class="service-photo" viewBox="688 314 300 269" role="img" aria-label="Prestij çalışanı ahşap dolabın montajını yapıyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <div class="service-body">
+            <span class="service-icon"><svg aria-hidden="true"><use href="#icon-tools"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
+            <h3>Mobilya Montajı</h3>
+            <p>Tüm mobilyalarınız uzman ekibimizce sökülür, taşınır ve montajı yapılır.</p>
+            <button class="service-details" type="button" data-service="furniture" aria-haspopup="dialog" aria-label="Mobilya Montajı detaylarını incele">Detayları İncele<svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="service-card">
+          <svg class="service-photo" viewBox="1005 314 303 269" role="img" aria-label="Bir koli koruyucu balonlu ambalajla paketleniyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <div class="service-body">
+            <span class="service-icon"><svg aria-hidden="true"><use href="#icon-box"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
+            <h3>Paketleme Hizmeti</h3>
+            <p>Eşyalarınız özel ambalaj malzemeleri ile güvenle paketlenir.</p>
+            <button class="service-details" type="button" data-service="packing" aria-haspopup="dialog" aria-label="Paketleme Hizmeti detaylarını incele">Detayları İncele<svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="service-card">
+          <svg class="service-photo" viewBox="1324 314 305 269" role="img" aria-label="Bina dışında Prestij eşyalarını taşıyan nakliye asansörü"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <div class="service-body">
+            <span class="service-icon"><svg aria-hidden="true"><use href="#icon-building"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
+            <h3>Asansörlü Taşıma</h3>
+            <p>Yüksek katlarda bile hızlı, güvenli ve pratik taşıma çözümleri.</p>
+            <button class="service-details" type="button" data-service="lift" aria-haspopup="dialog" aria-label="Asansörlü Taşıma detaylarını incele">Detayları İncele<svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          </div>
+        </article>
+      </div>
+    </section>
+    <dialog class="service-dialog" aria-labelledby="service-dialog-title" aria-describedby="service-dialog-description">
+      <button class="dialog-close" type="button" aria-label="Hizmet detayını kapat" autofocus>×</button>
+      <p class="dialog-eyebrow">PRESTİJ NAKLİYAT</p>
+      <h2 id="service-dialog-title"></h2>
+      <p id="service-dialog-description"></p>
+      <p class="dialog-note">Taşınma tarihinizi, adreslerinizi ve eşya bilgilerinizi paylaşarak hizmet hakkında bilgi ve fiyat teklifi alabilirsiniz.</p>
+      <a class="hero-button hero-button--gold" href="tel:+905321234567">Bilgi ve Fiyat Teklifi Al<svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+    </dialog>
   </main>
 </body>
 </html>
