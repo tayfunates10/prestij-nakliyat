@@ -44,3 +44,9 @@ Altın ayırıcı çizgiler ve ışık efektleri CSS ile oluşturulmuştur. Yerl
 `#hakkimizda` bölümünde kullanıcı referansındaki ekip fotoğrafı, açıklama, dört özellik, altın dalga, dört istatistik ve el yazısı slogan yer alır. Fotoğraf, ikonlar ve slogan `assets/about-reference.png` kaynağından SVG görüntü alanlarıyla gösterilir; metinler ve istatistikler HTML'dir. 500+ müşteri, 1.000+ taşıma ve 10+ yıl değerleri kullanıcı referansından alınmıştır; bağımsız doğrulama yapılmamıştır.
 
 Masaüstünde fotoğraf solda ve açıklama sağda; mobilde üst üste yerleşir. Özellikler mobilde tek, istatistikler iki sütundur. Hakkımızda menü bağlantısı bu bölüme gider. Görselin dalga çizgisi basit SVG geometriyle yeniden oluşturulmuştur. Hareket azaltma tercihi desteklenir.
+
+## Taşıma Süreci — altıncı bölüm
+
+`#tasinma-sureci` bölümünde kullanıcının referansındaki başlık, ekip sahnesi ve numaralı beş adım yer alır: İletişim, Keşif & Planlama, Paketleme, Taşıma, Montaj & Teslimat. Fotoğraflar ve içlerindeki hizmet ikonları `assets/process-reference.png` kaynağından SVG görüntü alanlarıyla gösterilir. Kart metinleri ve numaralar bağımsız HTML öğeleridir. Beş adım semantik sıralı liste olarak düzenlenmiştir.
+
+Masaüstünde beş sütun, daha dar ekranlarda üç ve iki sütun, telefonda tek sütun kullanılır. Telefonda bağlantı okları aşağıya döner. Hareket azaltma tercihi desteklenir. Üst menüdeki Taşınma Süreci bağlantısı bu bölüme gider.
