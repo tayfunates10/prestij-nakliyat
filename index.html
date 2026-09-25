@@ -8,7 +8,10 @@
   <title>Prestij Nakliyat</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ctext x='8' y='25' font-family='Arial' font-weight='bold' font-size='26' fill='%23f7c54b'%3EP%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
   <script src="script.js" defer></script>
+  <script src="hero.js" defer></script>
 </head>
 <body>
   <header class="site-header" id="ana-sayfa">
@@ -37,6 +40,70 @@
       </a>
     </div>
   </header>
-  <main id="site-content" aria-label="Sayfa içeriği"></main>
+  <main id="site-content" aria-label="Sayfa içeriği">
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 22s8-9.1 8-14A8 8 0 0 0 4 8c0 4.9 8 14 8 14Z" fill="currentColor"/><circle cx="12" cy="8" r="3" fill="#080704"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M3 12h17m-7-7 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-quote" viewBox="0 0 24 24"><path d="M14 2H5v18h15V8Zm0 0v6h6M8 11h9M8 14h9M8 17h7M3 5H1v18h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-whatsapp" viewBox="0 0 32 32"><path d="M27 5A14 14 0 0 0 5 22L3 30l8-2A14 14 0 0 0 27 5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m11 8 3 5-2 2c1 3 3 4 5 5l2-2 5 2c-1 5-5 5-10 2-5-3-8-9-6-12z" fill="currentColor"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 32 32"><path d="M16 2 29 7v9c0 7-8 12-13 15C11 28 3 23 3 16V7Z" fill="currentColor"/><path d="m10 16 4 4 8-9" fill="none" stroke="#080704" stroke-width="3.5"/></symbol>
+      <symbol id="icon-team" viewBox="0 0 32 32"><circle cx="16" cy="9" r="5" fill="currentColor"/><circle cx="5" cy="11" r="3.5" fill="currentColor"/><circle cx="27" cy="11" r="3.5" fill="currentColor"/><path d="M8 29v-8a8 8 0 0 1 16 0v8ZM1 25v-6a5 5 0 0 1 6-5v11Zm24 0V14a5 5 0 0 1 6 5v6Z" fill="currentColor"/></symbol>
+      <symbol id="icon-bars" viewBox="0 0 32 32"><rect x="3" y="17" width="7" height="13" rx="2" fill="currentColor"/><rect x="13" y="3" width="7" height="27" rx="2" fill="currentColor"/><rect x="23" y="11" width="7" height="19" rx="2" fill="currentColor"/></symbol>
+      <symbol id="icon-diamond" viewBox="0 0 32 32"><path d="m2 11 6-8h16l6 8-14 20Zm0 0h28M8 3l8 28L24 3M8 3l8 8 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 32 32"><path d="m1 14 15-13 15 13-3 3L16 6 4 17Zm5 2L16 8l10 8v15h-7V20h-6v11H6ZM22 2h5v8l-5-4Z" fill="currentColor"/></symbol>
+      <symbol id="icon-box" viewBox="0 0 32 32"><path d="m16 1 14 7v16l-14 7-14-7V8Z" fill="currentColor"/><path d="m2 8 14 7 14-7M16 15v16M9 4l14 7v7" fill="none" stroke="#080704" stroke-width="2"/></symbol>
+    </svg>
+    <section class="hero" aria-label="Prestij Nakliyat tanıtımı" aria-roledescription="slayt gösterisi">
+      <div class="hero-slides">
+        <article class="hero-slide is-current" id="hero-slide-1" role="group" aria-roledescription="slayt" aria-label="1 / 2 — Zonguldak’ın yokuşunu en iyi biz biliriz">
+          <img class="hero-image" src="assets/hero-coast-fiat.png" alt="Gün batımında sahil yolunda, kasası siyah ve altın Prestij Nakliyat tasarımıyla kaplanmış beyaz Fiat Ducato kamyonet" fetchpriority="high" width="1672" height="941">
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <svg class="hero-brand" viewBox="55 447 433 108" aria-label="Prestij Nakliyat" role="img"><image href="assets/header-reference.png" width="1672" height="941"/></svg>
+            <p class="hero-eyebrow"><svg aria-hidden="true"><use href="#icon-pin"/></svg>ZONGULDAK’TA GÜVENLİ TAŞIMACILIK</p>
+            <h1 class="hero-title"><span>Zonguldak’ın</span><span class="gold-text hero-title-emphasis">Yokuşunu</span><span>En İyi Biz Biliriz</span></h1>
+            <p class="hero-description">Evden eve nakliyat, ofis taşımacılığı ve mobilya montajında<br class="desktop-break"> Zonguldak’ın en güvenilir çözüm ortağıyız.</p>
+            <div class="hero-actions">
+              <a class="hero-button hero-button--gold" href="tel:+905321234567"><svg aria-hidden="true"><use href="#icon-quote"/></svg><span>Ücretsiz Fiyat Teklifi Al</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+              <a class="hero-button hero-button--green" href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>WhatsApp’tan Yazın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            </div>
+            <ul class="hero-benefits hero-benefits--compact">
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><span><strong>%100</strong>Güvenli Taşıma</span></li>
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-team"/></svg></span><span><strong>Profesyonel</strong>Ekip</span></li>
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-bars"/></svg></span><span><strong>Zamanında</strong>Teslimat</span></li>
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-diamond"/></svg></span><span><strong>Uygun Fiyat</strong>Garantisi</span></li>
+            </ul>
+          </div>
+        </article>
+        <article class="hero-slide hero-slide--planning" id="hero-slide-2" role="group" aria-roledescription="slayt" aria-label="2 / 2 — Taşınmanızı bugün planlayın" aria-hidden="true" inert>
+          <img class="hero-image" src="assets/hero-road-fiat.png" alt="Altın ışık izleriyle aydınlanan sahil yolunda Prestij kaplamalı beyaz Fiat Ducato kamyonet" width="1672" height="941">
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <svg class="hero-brand" viewBox="55 447 433 108" aria-label="Prestij Nakliyat" role="img"><image href="assets/header-reference.png" width="1672" height="941"/></svg>
+            <p class="hero-brand-tagline">EVDEN EVE VE MOBİLYA MONTAJ</p>
+            <p class="hero-eyebrow">ZONGULDAK’TA GÜVENLİ TAŞIMACILIK</p>
+            <h2 class="hero-title"><span>Taşınmanızı</span><span class="gold-text planning-emphasis">Bugün Planlayın</span></h2>
+            <p class="hero-description">Evden eve nakliyat, ofis taşımacılığı ve mobilya montajında<br class="desktop-break"> Zonguldak’ın <strong>en güvenilir çözüm ortağıyız.</strong><br>Profesyonel ekibimizle eşyalarınız emin ellerde!</p>
+            <div class="hero-actions">
+              <a class="hero-button hero-button--gold" href="tel:+905321234567"><svg aria-hidden="true"><use href="#icon-quote"/></svg><span>Hemen Fiyat Teklifi Alın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+              <a class="hero-button hero-button--green" href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>WhatsApp’tan Ulaşın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            </div>
+          </div>
+          <ul class="hero-benefits hero-benefits--wide">
+            <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><span><strong>Hızlı Dönüş</strong>Aynı gün teklif imkanı</span></li>
+            <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span><span><strong>Ücretsiz Keşif</strong>Yerinde ekspertiz hizmeti</span></li>
+            <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-box"/></svg></span><span><strong>Güvenli Taşıma</strong>Eşyalarınız sigorta güvencesinde</span></li>
+          </ul>
+        </article>
+      </div>
+      <div class="hero-controls" aria-label="Slayt kontrolleri">
+        <button class="hero-step" type="button" data-step="-1" aria-label="Önceki slayt">‹</button>
+        <button class="hero-dot is-selected" type="button" data-slide="0" aria-label="1. slaytı göster" aria-controls="hero-slide-1" aria-pressed="true"><span></span></button>
+        <button class="hero-dot" type="button" data-slide="1" aria-label="2. slaytı göster" aria-controls="hero-slide-2" aria-pressed="false"><span></span></button>
+        <button class="hero-step" type="button" data-step="1" aria-label="Sonraki slayt">›</button>
+        <button class="hero-pause" type="button" aria-label="Otomatik geçişi duraklat" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
