@@ -50,3 +50,9 @@ Masaüstünde fotoğraf solda ve açıklama sağda; mobilde üst üste yerleşir
 `#tasinma-sureci` bölümünde kullanıcının referansındaki başlık, ekip sahnesi ve numaralı beş adım yer alır: İletişim, Keşif & Planlama, Paketleme, Taşıma, Montaj & Teslimat. Fotoğraflar ve içlerindeki hizmet ikonları `assets/process-reference.png` kaynağından SVG görüntü alanlarıyla gösterilir. Kart metinleri ve numaralar bağımsız HTML öğeleridir. Beş adım semantik sıralı liste olarak düzenlenmiştir.
 
 Masaüstünde beş sütun, daha dar ekranlarda üç ve iki sütun, telefonda tek sütun kullanılır. Telefonda bağlantı okları aşağıya döner. Hareket azaltma tercihi desteklenir. Üst menüdeki Taşınma Süreci bağlantısı bu bölüme gider.
+
+## Hizmet Bölgemiz — yedinci bölüm
+
+`#hizmet-bolgemiz` bölümü, sağlanan tam sayfa tasarımından yalnızca hizmet bölgesi alanını uygular. Zonguldak Merkez, Ereğli, Çaycuma, Devrek, Gökçebey, Alaplı, Kilimli ve Kozlu etiketleri semantik bir listedir; filtre veya seçim düğmesi değildir. Merkez etiketi altın dolguludur.
+
+Sağdaki temsili harita, `assets/coverage-reference.png` içindeki ilgili SVG görüntü alanından gösterilir; etkileşimli coğrafi harita değildir. Mobilde harita metin ve etiketlerin altına geçer. Diğer referans bölümleri bu değişikliğe dahil edilmemiştir.
