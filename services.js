@@ -9,7 +9,7 @@
     packing: ['Paketleme Hizmeti', 'Eşyalarınız özel ambalaj malzemeleri ile güvenle paketlenir. Paketlenmesini istediğiniz eşyaları ve hassas parçaları belirterek hizmet hakkında bilgi alabilirsiniz.'],
     lift: ['Asansörlü Taşıma', 'Yüksek katlarda bile hızlı, güvenli ve pratik taşıma çözümleri. Asansörlü taşımanın adresinize uygunluğunu değerlendirmek için kat ve bina çevresi bilgilerini paylaşabilirsiniz.']
   };
-  document.querySelector('.service-grid').addEventListener('click', event => {
+  document.addEventListener('click', event => {
     const button = event.target.closest('[data-service]');
     if (!button) return;
     const service = services[button.dataset.service];

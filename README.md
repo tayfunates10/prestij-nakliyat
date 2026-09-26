@@ -64,3 +64,9 @@ Sağdaki temsili harita, `assets/coverage-reference.png` içindeki ilgili SVG g�
 Form ad, Türkiye telefon numarası, çıkış/varış adresi ve isteğe bağlı not toplar. Gönderim, bu bilgileri kodlanmış metin olarak WhatsApp sohbetine hazırlar; ziyaretçi orada kendisi gönderir. Sunucuya kayıt, otomatik mesaj, e-posta gönderimi veya tarayıcıda kalıcı saklama yoktur. Arayüz bu davranışı açıklar. Açılır pencere engellenirse devam bağlantısı gösterilir. Telefon numarası diğer bölümlerdeki örnek `0532 123 45 67` numarasıdır. Yayına almadan önce gerçek iletişim bilgileri teyit edilmelidir.
 
 İlk SSS açık başlar; başka soru açıldığında önceki kapanır. Yerleşim geniş ekranda üç sütun, tablette iki sütun ve altta iletişim, telefonda tek sütundur. Form doğrulaması ve klavye erişimi desteklenir.
+
+## Footer — dokuzuncu bölüm
+
+Referans düzenine göre logo, hizmet bağlantıları, kurumsal alan, hizmet bölgeleri, sosyal medya ikonları ve el yazısı slogan eklendi. Hizmet düğmeleri mevcut detay pencerelerini açar; kurumsal bağlantılar hazır bölümlere gider. Bölge bağlantıları hizmet bölgesi alanını açar. Logo sayfa başına döner. Alt satırda 2026 telif bilgisi ve hizmet sloganları yer alır.
+
+Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve `https://instagram.com` adresine bağlanır; kullanıcı hesap adresini daha sonra değiştirecektir. Galeri bölümü henüz oluşturulmadığından footer'daki Galeri metni bağlantı değildir. El yazısı `assets/coverage-reference.png` içindeki footer görselinden alınır.
