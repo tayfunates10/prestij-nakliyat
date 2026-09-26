@@ -82,3 +82,15 @@ Hizmet Bölgemiz ile SSS/teklif/iletişim alanları arasına dört kullanıcı f
 Son yüklenen `layout.css`, bölümleri ortak 1600 piksel üst genişlikte toplar; başlık, kart, ikon ve boşluk ölçeklerini ekran boyutuna göre dengeler. Header arama kutusu grid içinde tutulur; tüm menü alt çizgileri 42 pikseldir. İki hero slaytı aynı ilk görseli, logoyu, butonları ve yerleşimi kullanır; sadece başlık, açıklama ve rozetler değişir. Rozet çemberleri sabit kare ölçüde, net 2 piksel kenarlıklıdır. Hizmet başlığının dekoratif çizgileri kaldırıldı. Hizmet fotoğrafları gömülü yuvarlak ikonlar görünmeyecek şekilde gösterilir; bağımsız kare ikonlar 60 × 60 pikseldir.
 
 Doğrulama: 320–1983 piksel arasında 13 ekran genişliğinde taşma, header kutusu, eşit menü çizgileri ve kare ikon ölçüleri; 7 saniyelik otomatik geçiş, önceki/sonraki ve klavye kontrolleri; hizmet/galeri pencereleri, SSS ve form doğrulaması. WhatsApp form testi bağlantıyı yakalayarak yapıldı, mesaj gönderilmedi.
+
+## İkinci düzeltme turu
+
+- Header/hero kenarlara tam oturur, hero içindeki ikinci logo kaldırılmıştır.
+- Neden Prestij bölümü altı sade kart ve aynı çizgi sistemindeki vektör ikonlarla yeniden tasarlanmıştır. Hakkımızda etiketi eşit yan çizgilerin merkezindedir. Özellik ikonları SVG'dir; alt rozetler Planlı, Özenli, Eksiksiz ve Zonguldak olarak güncellenmiştir.
+- Taşıma süreci görseli kendi sınırları içindedir; fotoğrafa gömülü eski ikonlar görünümden çıkarılmış, simetrik yeni ikonlar ve dolu oklar eklenmiştir.
+- Hizmet bölgesi ve iletişim haritaları Leaflet 1.9.4 ile gerçek OpenStreetMap verisi kullanır. Haritalar görünür olduklarında yüklenir; sürükleme, +/−, dokunmatik yakınlaştırma desteklenir. Sayfa kaydırmasını engellememesi için fare tekerleğiyle yakınlaştırma kapalıdır. Siyah/altın görünüm CSS ile uygulanır, atıf ayrı ve okunaklıdır.
+- İşaret 41.4535, 31.7894 koordinatındaki Zonguldak merkezini gösterir; doğrulanmış işletme adresi değildir. İşletmenin konumu geldiğinde `maps.js` içindeki merkez/işaret bilgileri ve haritada aç bağlantısı güncellenmelidir.
+- OpenStreetMap standart karo sunucusu: https://tile.openstreetmap.org/{z}/{x}/{y}.png. Normal tarayıcı önbelleği korunur, önceden indirme/offline paketleme yapılmaz. Kullanım politikası: https://operations.osmfoundation.org/policies/tiles/ . Testlerde harita karoları taklit edilmiştir; gerçek görünüm uygulama tarayıcısında kontrol edilmiştir. Leaflet: https://leafletjs.com/examples/quick-start/ . Yerel kütüphane lisansı `assets/vendor/leaflet/LICENSE` içindedir.
+- SSS “Daha Fazlası” bağlantısı `sss.html` sayfasına gider. Sayfa mevcut sorularla çalışır; ileride ek sorularla genişletilebilir.
+- Galeri alt bantları fotoğraf alanının içindedir. Tekrarlanabilir tasarım ve başka görsel araçları için talimatlar `GALERI-TASARIM-REHBERI.md` içindedir.
+- Footer sloganı `assets/footer-signature.svg` içinde yeniden oluşturulmuştur; düşük çözünürlüklü raster kırpımı kullanılmaz.
