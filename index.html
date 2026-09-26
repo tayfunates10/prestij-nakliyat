@@ -14,10 +14,12 @@
   <link rel="stylesheet" href="about.css">
   <link rel="stylesheet" href="process.css">
   <link rel="stylesheet" href="coverage.css">
+  <link rel="stylesheet" href="contact.css">
   <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
   <script src="script.js" defer></script>
   <script src="hero.js" defer></script>
   <script src="services.js" defer></script>
+  <script src="contact.js" defer></script>
 </head>
 <body>
   <header class="site-header" id="ana-sayfa">
@@ -319,6 +321,52 @@
       </div>
       <svg class="coverage-map" viewBox="640 1086 371 98" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Zonguldak işaretli, altın çizgili temsili hizmet bölgesi haritası"><image href="assets/coverage-reference.png" width="1055" height="1491"/></svg>
     </section>
+    <section class="contact-strip" aria-label="Sorularınız, teklif talebiniz ve iletişim">
+      <div class="contact-column faq-column" id="sss" aria-labelledby="faq-title">
+        <p class="contact-eyebrow">SIKÇA SORULAN SORULAR</p>
+        <h2 id="faq-title">Merak Ettikleriniz</h2>
+        <p class="contact-intro">Tüm sorularınız için bizimle iletişime geçebilirsiniz.</p>
+        <div class="faq-list">
+          <details name="moving-faq" open><summary>Fiyat teklifi nasıl alabilirim?<span aria-hidden="true"></span></summary><p>WhatsApp ya da telefonla bize ulaşarak, eşyalarınız hakkında bilgi verebilir ve ücretsiz fiyat teklifi alabilirsiniz.</p></details>
+          <details name="moving-faq"><summary>Taşıma süresi ne kadar sürer?<span aria-hidden="true"></span></summary><p>Taşıma süresi eşya miktarına, adresler arasındaki mesafeye ve bina koşullarına göre değişir. Keşif ve planlama sırasında size uygun taşıma takvimini birlikte belirleriz.</p></details>
+          <details name="moving-faq"><summary>Eşyalarım sigortalı mı?<span aria-hidden="true"></span></summary><p>Eşyalarınız taşıma süresince sigorta güvencesi altındadır. Taşınmadan önce sigorta kapsamı ve koşulları hakkında ekibimizden ayrıntılı bilgi alabilirsiniz.</p></details>
+          <details name="moving-faq"><summary>Sadece Zonguldak içinde mi hizmet veriyorsunuz?<span aria-hidden="true"></span></summary><p>Zonguldak genelindeki taşıma talepleriniz için hizmet veriyoruz. Farklı bir güzergâh planlıyorsanız uygunluk ve fiyat teklifi için bizimle iletişime geçebilirsiniz.</p></details>
+          <details name="moving-faq"><summary>Mobilya sökme ve montaj hizmeti dahil mi?<span aria-hidden="true"></span></summary><p>Mobilya sökme ve montaj hizmetimiz bulunmaktadır. Taşınacak mobilyaları paylaşarak teklifinize dahil edilecek işlemleri ekibimizle netleştirebilirsiniz.</p></details>
+        </div>
+      </div>
+      <div class="contact-column quote-column" id="teklif-al" aria-labelledby="quote-title">
+        <p class="contact-eyebrow">TEKLİF ALIN</p>
+        <h2 id="quote-title">Ücretsiz Fiyat Teklifi İsteyin</h2>
+        <p class="contact-intro">Formu doldurun, en kısa sürede sizinle iletişime geçelim.</p>
+        <form class="quote-form">
+          <div class="quote-fields">
+            <label><span class="contact-visually-hidden">Ad Soyad</span><input name="fullName" type="text" placeholder="Ad Soyad" autocomplete="name" maxlength="100" required></label>
+            <label><span class="contact-visually-hidden">Telefon Numaranız</span><input name="phone" type="tel" placeholder="Telefon Numaranız" autocomplete="tel" inputmode="tel" maxlength="24" required aria-describedby="quote-hint"></label>
+            <label><span class="contact-visually-hidden">Taşınacak Adres (Nereden)</span><input name="origin" type="text" placeholder="Taşınacak Adres (Nereden)" maxlength="200" required></label>
+            <label><span class="contact-visually-hidden">Yeni Adres (Nereye)</span><input name="destination" type="text" placeholder="Yeni Adres (Nereye)" maxlength="200" required></label>
+          </div>
+          <label class="quote-notes"><span class="contact-visually-hidden">Eklemek istediğiniz notlar</span><textarea name="notes" placeholder="Eklemek istediğiniz notlar…" rows="3" maxlength="1500"></textarea></label>
+          <button class="quote-submit" type="submit" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 2 10l8 4 4 8 8-20ZM10 14 22 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Teklif Talebi Gönder<svg class="quote-submit-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          <p class="quote-hint" id="quote-hint">Talebiniz WhatsApp’ta açılır; gönderimi orada tamamlayın.</p>
+          <div class="quote-result" hidden><p role="status" aria-live="polite"></p><a class="quote-whatsapp-link" target="_blank" rel="noopener noreferrer">WhatsApp’ta devam et <span aria-hidden="true">↗</span></a></div>
+          <noscript><p class="quote-hint">Teklif almak için <a href="tel:+905321234567">0532 123 45 67</a> numarasını arayabilirsiniz. Form için JavaScript gereklidir.</p></noscript>
+        </form>
+      </div>
+      <div class="contact-column reach-column" id="iletisim" aria-labelledby="reach-title">
+        <p class="contact-eyebrow">İLETİŞİM</p>
+        <h2 id="reach-title">Bize Ulaşın</h2>
+        <p class="contact-intro">Her zaman yanınızdayız.</p>
+        <div class="reach-content">
+          <address class="reach-list">
+            <a href="tel:+905321234567"><span class="reach-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 2 4 6-3 3c2 3 3 4 6 6l3-3 6 4c-1 5-5 5-10 2S2 12 2 7c0-3 1-5 4-5Z" fill="currentColor"/></svg></span><span><strong>0532 123 45 67</strong><small>Hemen Arayın</small></span></a>
+            <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer"><span class="reach-icon"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg></span><span><strong>0532 123 45 67</strong><small>WhatsApp’tan Yazın</small></span></a>
+            <a href="mailto:info@prestijnakliyat.com.tr"><span class="reach-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 5 9 8 9-8" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>info@prestijnakliyat.com.tr</strong><small>E-posta Gönderin</small></span></a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Zonguldak+Merkez" target="_blank" rel="noopener noreferrer"><span class="reach-icon"><svg aria-hidden="true"><use href="#icon-pin"/></svg></span><span><strong>Zonguldak Merkez</strong><small>Zonguldak, Türkiye</small></span></a>
+          </address>
+          <a class="reach-map" href="https://www.google.com/maps/search/?api=1&amp;query=Zonguldak+Merkez" target="_blank" rel="noopener noreferrer" aria-label="Zonguldak Merkez’i Google Haritalar’da aç (yeni sekme)"><svg viewBox="859 1217 151 171" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Referans tasarımdaki Zonguldak haritası"><image href="assets/coverage-reference.png" width="1055" height="1491"/></svg><span class="reach-map-label">Haritada aç ↗</span></a>
+        </div>
+      </div>
+    </section>
     <dialog class="service-dialog" aria-labelledby="service-dialog-title" aria-describedby="service-dialog-description">
       <button class="dialog-close" type="button" aria-label="Hizmet detayını kapat" autofocus>×</button>
       <p class="dialog-eyebrow">PRESTİJ NAKLİYAT</p>
@@ -330,4 +378,3 @@
   </main>
 </body>
 </html>
-

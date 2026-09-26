@@ -56,3 +56,11 @@ Masaüstünde beş sütun, daha dar ekranlarda üç ve iki sütun, telefonda tek
 `#hizmet-bolgemiz` bölümü, sağlanan tam sayfa tasarımından yalnızca hizmet bölgesi alanını uygular. Zonguldak Merkez, Ereğli, Çaycuma, Devrek, Gökçebey, Alaplı, Kilimli ve Kozlu etiketleri semantik bir listedir; filtre veya seçim düğmesi değildir. Merkez etiketi altın dolguludur.
 
 Sağdaki temsili harita, `assets/coverage-reference.png` içindeki ilgili SVG görüntü alanından gösterilir; etkileşimli coğrafi harita değildir. Mobilde harita metin ve etiketlerin altına geçer. Diğer referans bölümleri bu değişikliğe dahil edilmemiştir.
+
+## SSS, teklif ve iletişim — sekizinci bölüm
+
+Üç sütunlu `contact-strip` alanında beş açılır soru, teklif formu, telefon/WhatsApp/e-posta bağlantıları ve referans harita bulunur. `#sss`, `#teklif-al`, `#iletisim` bağlantıları desteklenir. Harita Zonguldak Merkez aramasını açar; gösterilen işaretin gerçek işletme adresi olduğu doğrulanmamıştır. İletişim bilgileri kullanıcı referansından alınmıştır.
+
+Form ad, Türkiye telefon numarası, çıkış/varış adresi ve isteğe bağlı not toplar. Gönderim, bu bilgileri kodlanmış metin olarak WhatsApp sohbetine hazırlar; ziyaretçi orada kendisi gönderir. Sunucuya kayıt, otomatik mesaj, e-posta gönderimi veya tarayıcıda kalıcı saklama yoktur. Arayüz bu davranışı açıklar. Açılır pencere engellenirse devam bağlantısı gösterilir. Telefon numarası diğer bölümlerdeki örnek `0532 123 45 67` numarasıdır. Yayına almadan önce gerçek iletişim bilgileri teyit edilmelidir.
+
+İlk SSS açık başlar; başka soru açıldığında önceki kapanır. Yerleşim geniş ekranda üç sütun, tablette iki sütun ve altta iletişim, telefonda tek sütundur. Form doğrulaması ve klavye erişimi desteklenir.
