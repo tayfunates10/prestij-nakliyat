@@ -1,0 +1,55 @@
+/* Shared page proportions and final component geometry. */
+:root{--page-width:1600px;--page-gutter:clamp(20px,3vw,48px);--section-space:clamp(40px,4vw,64px)}
+.site-header,.hero{max-width:var(--page-width);margin-inline:auto;width:calc(100% - 32px)}
+.services,.trust,.about,.process,.coverage,.gallery,.contact-strip,.site-footer{max-width:var(--page-width)}
+.services,.trust,.process,.gallery{padding:var(--section-space) var(--page-gutter)}
+.coverage,.contact-strip,.footer-main,.footer-bottom{padding-inline:var(--page-gutter)}
+.services-heading h2{font-size:clamp(30px,3.4vw,54px);letter-spacing:-1.5px}
+.services-intro{font-size:clamp(17px,1.4vw,21px)}
+.header-inner{min-width:0;gap:20px;padding:16px 24px;min-height:108px}
+.brand{min-width:0}
+.navigation{min-width:0}
+.nav-link,.nav-link:first-child,.nav-link:last-child{padding:10px 8px;font-size:18px;text-align:center}
+.nav-link:after,.nav-link:first-child:after{width:42px;left:50%;right:auto;height:3px;transform:translateX(-50%) scaleX(0)}
+.nav-link:hover:after,.nav-link.is-active:after,.nav-link:focus-visible:after{transform:translateX(-50%) scaleX(1)}
+.call-button{min-width:0;min-height:64px;padding:10px 12px;gap:10px}
+.call-button>svg{width:30px;height:34px;flex:none}
+.call-copy strong{font-size:21px;white-space:nowrap}.call-copy>span{font-size:18px}
+@media(min-width:1241px){.header-inner{display:grid;grid-template-columns:minmax(200px,310px) minmax(0,1fr) 212px;gap:16px}.brand{width:100%}.navigation{width:100%;display:flex}.nav-link{flex:1}.call-button{width:212px;margin:0}}
+.hero{margin-bottom:0}
+.hero-slide{min-height:690px;padding-top:30px;padding-bottom:76px}
+.hero-image,.is-current .hero-image{transform:none;transition:none}
+.hero-brand{width:340px;margin-bottom:20px}
+.hero-title{font-size:clamp(40px,4.1vw,65px)}
+.hero-description{font-size:clamp(17px,1.35vw,21px);min-height:2.8em}
+.hero-button{min-height:64px;padding:13px 16px;gap:10px;font-size:18px;border-radius:14px}
+.hero-benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.hero-benefits li{gap:9px;min-width:0}.hero-benefits li+li{margin:0;padding:0}.hero-benefits li+li:before{display:none}
+.hero-benefits li>span:last-child{font-size:15px;white-space:normal}
+.benefit-icon{width:52px;height:52px;aspect-ratio:1;flex:0 0 52px;border:2px solid #edc355;border-radius:50%;background:#080704;box-shadow:none}
+.benefit-icon svg{width:28px;height:28px}
+.hero-controls{gap:10px;padding:0;border:0;background:none;backdrop-filter:none;bottom:18px}
+.hero-controls button,.hero-controls .hero-pause{width:36px;min-width:36px;height:36px;padding:0;border:1px solid #cda74b;border-radius:50%;background:#080704;color:#ffdd85;line-height:1}
+.hero-controls button:hover{background:#392b0d}.hero-controls .hero-pause{font-size:14px}
+.services{border-top:0}.services .section-eyebrow:before,.services .section-eyebrow:after,.services .section-eyebrow>span:before{display:none}
+.service-photo{aspect-ratio:307/211}
+.service-body{padding:20px;gap:0}
+.service-icon{position:static;width:60px;height:60px;flex:0 0 60px;border:1.5px solid #e8bb51;border-radius:8px;margin:0 0 18px;background:#0d0a04;box-shadow:none}
+.service-icon>svg{width:32px;height:32px}
+.service-corner-arrow{top:34px;right:20px;width:28px;height:28px}
+.service-body h3{font-size:24px;min-height:2.4em;margin-bottom:10px}
+.service-body>p{font-size:20px;line-height:1.4;min-height:4.2em}
+.service-details{font-size:15px;min-height:48px;padding:11px 32px 11px 12px}.service-details>svg{right:12px}
+.trust-brand{width:330px;flex-basis:330px}.trust-icon{width:160px}
+.trust-item h3{font-size:26px;line-height:1.12}.trust-item p{font-size:20px;line-height:1.35}
+.about-copy h2{font-size:clamp(32px,3vw,48px)}
+.about-description{font-size:22px;line-height:1.45;margin-bottom:28px}
+.about-feature-icon{width:66px;height:67px}.about-features h3{font-size:22px}.about-features p{font-size:18px;line-height:1.35}
+.about-main{min-height:620px}.about-copy{padding:48px 32px 44px 20px}.about-features{gap:26px 16px}
+.process-heading h2{font-size:clamp(28px,2.6vw,42px)}.process-heading h2>span{font-size:1.22em}
+.process-intro{font-size:21px;white-space:normal;line-height:1.4}.process-heading{min-height:320px}
+.process-step-copy{padding:12px 18px 22px}.process-step-copy h3{font-size:22px}.process-step-copy p{font-size:19px;line-height:1.35}
+@media(max-width:1240px){.header-inner{gap:16px}.brand{flex:1 1 220px;max-width:310px}.call-button{flex-basis:212px}.nav-link{font-size:18px}}
+@media(min-width:901px) and (max-width:1100px){.hero-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-button{font-size:15px;padding-inline:10px}.hero-title{font-size:4.1vw}}
+@media(max-width:900px){.hero-slide{min-height:0;padding-top:0}.hero-title{font-size:clamp(32px,6.9vw,60px)}.hero-brand{max-width:70%}.hero-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}.about-main{min-height:0}.about-copy{padding:32px var(--page-gutter)}.about-description{font-size:20px}.process-heading{min-height:0}.service-body h3{min-height:0}}
+@media(max-width:600px){.site-header,.hero{width:calc(100% - 20px)}.header-inner{padding:14px;gap:12px}.brand{max-width:260px;flex:1 1 170px}.call-button{flex-basis:100%}.hero-title{font-size:clamp(26px,7.6vw,45px)}.hero-description{font-size:16px;min-height:6em}.hero-button{font-size:17px}.hero-benefits li>span:last-child{font-size:14px}.benefit-icon{width:44px;height:44px;flex-basis:44px}.benefit-icon svg{width:24px;height:24px}.trust-brand{max-width:65%}.trust-icon{width:130px}.trust-item{padding-inline:9px}.trust-item h3{font-size:23px}.trust-item p{font-size:18px}.about-features h3{font-size:21px}.process-heading h2>span{white-space:normal}.process-intro{font-size:19px}}

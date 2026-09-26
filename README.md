@@ -11,7 +11,7 @@
 - Animasyonlar sabit görsele göre yorumlanmıştır; birebir hareket eşleşmesi için video gerekir.
 - Görseldeki tarayıcı adres çubuğu siteye dahil değildir.
 - Telefon numarası referanstaki haliyle kullanılmıştır; yayına çıkmadan önce işletmenin numarasıyla doğrulanmalıdır.
-- Menü bağlantıları sonraki bölümlerin kimliklerine hazırdır: `hakkimizda`, `hizmetlerimiz`, `tasinma-sureci`, `sss`, `galeri`, `iletisim`. Bu bölümlerin içeriği henüz verilmediğinden eklenmemiştir.
+- Menü bağlantıları sonraki bölümlerin kimliklerine hazırdır: `hakkimizda`, `hizmetlerimiz`, `tasinma-sureci`, `sss`, `galeri`, `iletisim`. Tüm bölümler sayfaya eklenmiştir.
 - Yazı tipi: Google Fonts üzerinden Roboto Condensed; bağlantı yoksa Arial Narrow / Arial.
 - Hareket azaltma tercihi desteklenir.
 
@@ -19,9 +19,9 @@ Sonraki bölümler `#site-content` içine eklenir.
 
 ## Hero — ikinci bölüm
 
-İki hero slaytı `hero.css` ve `hero.js` ile eklendi. Slaytlar 7 saniyede bir 1 saniyelik yumuşak geçiş yapar. Önceki/sonraki, doğrudan slayt seçimi ve duraklatma kontrolleri vardır. Fareyle üzerinde durunca, klavye odağı hero içindeyken ve sekme gizlendiğinde otomatik geçiş bekler. Hareket azaltma tercihi açıkken otomatik geçiş başlangıçta kapalıdır. Etkin olmayan slayt klavye ve ekran okuyucudan gizlenir.
+İki hero slaytı `hero.css` ve `hero.js` ile eklendi. Slaytlar 7 saniyede bir 1 saniyelik yumuşak geçiş yapar. Önceki, duraklat/başlat ve sonraki olmak üzere üç eşit dairesel kontrol vardır. İlk geçiş sayfa yüklendikten 7 saniye sonradır. Klavye odağı hero içindeyken ve sekme gizlendiğinde otomatik geçiş bekler; fareyle üzerinde durmak geçişi durdurmaz. Hareket azaltma tercihi açıkken otomatik geçiş başlangıçta kapalıdır. Etkin olmayan slayt klavye ve ekran okuyucudan gizlenir.
 
-Hero görsellerinde kullanıcının beyaz Fiat Ducato kamyoneti ve kasaya perspektifli Prestij kaplaması kullanıldı. Üretim yöntemi ve tam istemler `assets/hero-generation.md` içinde kayıtlıdır. Görselden bağımsız HTML başlıklar ve bağlantılar kullanılır. Teklif düğmeleri telefon aramasına; WhatsApp düğmeleri sohbet ekranına gider. Her iki bağlantı da ilk referanstaki örnek telefon numarasını kullanır.
+Hero görsellerinde kullanıcının beyaz Fiat Ducato kamyoneti ve kasaya perspektifli Prestij kaplaması kullanıldı. Üretim yöntemi ve tam istemler `assets/hero-generation.md` içinde kayıtlıdır. Görselden bağımsız HTML başlıklar ve bağlantılar kullanılır. Teklif düğmeleri sayfadaki teklif formuna; WhatsApp düğmeleri sohbet ekranına gider. Her iki bağlantı da ilk referanstaki örnek telefon numarasını kullanır.
 
 Kullanıcının örneğindeki pazarlama metinleri korunmuştur; bunlar bağımsız olarak doğrulanmış hizmet beyanları değildir. Görseller referans kompozisyonuna göre oluşturulmuş temsili sahnelerdir.
 
@@ -76,3 +76,9 @@ Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve `https://ins
 Hizmet Bölgemiz ile SSS/teklif/iletişim alanları arasına dört kullanıcı fotoğrafından oluşan `#galeri` bölümü eklendi. `assets/gallery/` altındaki kaynak JPEG'ler değiştirilmeden kopyalandı. Her kartın altındaki HTML bandında Prestij Nakliyat, mevcut iletişim numarası ve Zonguldak Merkez bulunur; bu bant fotoğraf dosyasına işlenmemiştir.
 
 Önizlemeler eşit boyda alanlara yerleşir; tıklandığında fotoğrafın tamamı kırpılmadan dialog içinde gösterilir. Önceki/sonraki, yön tuşları, Escape, kapatma düğmesi ve dışarı tıklama desteklenir. Telefon linkleri ayrı tıklanabilir öğelerdir. Masaüstünde dört, tablette iki ve mobilde tek sütundur. Üst menü ve footer galeriye bağlanmıştır.
+
+## 26 Eylül — ölçü ve arayüz düzeltmeleri
+
+Son yüklenen `layout.css`, bölümleri ortak 1600 piksel üst genişlikte toplar; başlık, kart, ikon ve boşluk ölçeklerini ekran boyutuna göre dengeler. Header arama kutusu grid içinde tutulur; tüm menü alt çizgileri 42 pikseldir. İki hero slaytı aynı ilk görseli, logoyu, butonları ve yerleşimi kullanır; sadece başlık, açıklama ve rozetler değişir. Rozet çemberleri sabit kare ölçüde, net 2 piksel kenarlıklıdır. Hizmet başlığının dekoratif çizgileri kaldırıldı. Hizmet fotoğrafları gömülü yuvarlak ikonlar görünmeyecek şekilde gösterilir; bağımsız kare ikonlar 60 × 60 pikseldir.
+
+Doğrulama: 320–1983 piksel arasında 13 ekran genişliğinde taşma, header kutusu, eşit menü çizgileri ve kare ikon ölçüleri; 7 saniyelik otomatik geçiş, önceki/sonraki ve klavye kontrolleri; hizmet/galeri pencereleri, SSS ve form doğrulaması. WhatsApp form testi bağlantıyı yakalayarak yapıldı, mesaj gönderilmedi.

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="gallery.css">
+  <link rel="stylesheet" href="layout.css">
   <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
   <script src="script.js" defer></script>
   <script src="hero.js" defer></script>
@@ -86,33 +87,31 @@
             </ul>
           </div>
         </article>
-        <article class="hero-slide hero-slide--planning" id="hero-slide-2" role="group" aria-roledescription="slayt" aria-label="2 / 2 — Taşınmanızı bugün planlayın" aria-hidden="true" inert>
-          <img class="hero-image" src="assets/hero-road-fiat.png" alt="Altın ışık izleriyle aydınlanan sahil yolunda Prestij kaplamalı beyaz Fiat Ducato kamyonet" width="1672" height="941">
+        <article class="hero-slide" id="hero-slide-2" aria-hidden="true" inert role="group" aria-roledescription="slayt" aria-label="2 / 2 — Taşınmanızı bugün planlayın">
+          <img class="hero-image" src="assets/hero-coast-fiat.png" alt="Gün batımında sahil yolunda, kasası siyah ve altın Prestij Nakliyat tasarımıyla kaplanmış beyaz Fiat Ducato kamyonet" width="1672" height="941">
           <div class="hero-shade" aria-hidden="true"></div>
           <div class="hero-copy">
             <svg class="hero-brand" viewBox="55 447 433 108" aria-label="Prestij Nakliyat" role="img"><image href="assets/header-reference.png" width="1672" height="941"/></svg>
-            <p class="hero-brand-tagline">EVDEN EVE VE MOBİLYA MONTAJ</p>
-            <p class="hero-eyebrow">ZONGULDAK’TA GÜVENLİ TAŞIMACILIK</p>
-            <h2 class="hero-title"><span>Taşınmanızı</span><span class="gold-text planning-emphasis">Bugün Planlayın</span></h2>
-            <p class="hero-description">Evden eve nakliyat, ofis taşımacılığı ve mobilya montajında<br class="desktop-break"> Zonguldak’ın <strong>en güvenilir çözüm ortağıyız.</strong><br>Profesyonel ekibimizle eşyalarınız emin ellerde!</p>
+            <p class="hero-eyebrow"><svg aria-hidden="true"><use href="#icon-pin"/></svg>ZONGULDAK’TA GÜVENLİ TAŞIMACILIK</p>
+            <h2 class="hero-title"><span>Taşınmanızı</span><span class="gold-text hero-title-emphasis">Bugün</span><span>Planlayın</span></h2>
+            <p class="hero-description">Taşınma planınızı profesyonel ekibimizle birlikte hazırlayın.<br class="desktop-break"> Eşyalarınız emin ellerde, yeni yuvanız sizi bekliyor.</p>
             <div class="hero-actions">
-              <a class="hero-button hero-button--gold" href="tel:+905321234567"><svg aria-hidden="true"><use href="#icon-quote"/></svg><span>Hemen Fiyat Teklifi Alın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-              <a class="hero-button hero-button--green" href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>WhatsApp’tan Ulaşın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+              <a class="hero-button hero-button--gold" href="tel:+905321234567"><svg aria-hidden="true"><use href="#icon-quote"/></svg><span>Ücretsiz Fiyat Teklifi Al</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+              <a class="hero-button hero-button--green" href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>WhatsApp’tan Yazın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
             </div>
+            <ul class="hero-benefits hero-benefits--compact">
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><span><strong>Hızlı Dönüş</strong>Aynı Gün Teklif</span></li>
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-team"/></svg></span><span><strong>Ücretsiz</strong>Keşif</span></li>
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-bars"/></svg></span><span><strong>Sigortalı</strong>Taşıma</span></li>
+              <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-diamond"/></svg></span><span><strong>7/24</strong>İletişim</span></li>
+            </ul>
           </div>
-          <ul class="hero-benefits hero-benefits--wide">
-            <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><span><strong>Hızlı Dönüş</strong>Aynı gün teklif imkanı</span></li>
-            <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span><span><strong>Ücretsiz Keşif</strong>Yerinde ekspertiz hizmeti</span></li>
-            <li><span class="benefit-icon"><svg aria-hidden="true"><use href="#icon-box"/></svg></span><span><strong>Güvenli Taşıma</strong>Eşyalarınız sigorta güvencesinde</span></li>
-          </ul>
         </article>
       </div>
       <div class="hero-controls" aria-label="Slayt kontrolleri">
         <button class="hero-step" type="button" data-step="-1" aria-label="Önceki slayt">‹</button>
-        <button class="hero-dot is-selected" type="button" data-slide="0" aria-label="1. slaytı göster" aria-controls="hero-slide-1" aria-pressed="true"><span></span></button>
-        <button class="hero-dot" type="button" data-slide="1" aria-label="2. slaytı göster" aria-controls="hero-slide-2" aria-pressed="false"><span></span></button>
-        <button class="hero-step" type="button" data-step="1" aria-label="Sonraki slayt">›</button>
         <button class="hero-pause" type="button" aria-label="Otomatik geçişi duraklat" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+        <button class="hero-step" type="button" data-step="1" aria-label="Sonraki slayt">›</button>
       </div>
     </section>
     <section class="services" id="hizmetlerimiz" aria-labelledby="services-title">
@@ -128,7 +127,7 @@
       </svg>
       <div class="service-grid">
         <article class="service-card">
-          <svg class="service-photo" viewBox="44 314 307 269" role="img" aria-label="Prestij üniformalı çalışan evde taşıma kolisi taşıyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <svg class="service-photo" viewBox="44 314 307 211" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Prestij üniformalı çalışan evde taşıma kolisi taşıyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
           <div class="service-body">
             <span class="service-icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
             <h3>Evden Eve Nakliyat</h3>
@@ -137,7 +136,7 @@
           </div>
         </article>
         <article class="service-card">
-          <svg class="service-photo" viewBox="368 314 303 269" role="img" aria-label="Ofiste taşınmaya hazırlanmış Prestij kolileri ve paketlenmiş mobilyalar"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <svg class="service-photo" viewBox="368 314 303 211" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ofiste taşınmaya hazırlanmış Prestij kolileri ve paketlenmiş mobilyalar"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
           <div class="service-body">
             <span class="service-icon"><svg aria-hidden="true"><use href="#icon-office"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
             <h3>Ofis Taşımacılığı</h3>
@@ -146,7 +145,7 @@
           </div>
         </article>
         <article class="service-card">
-          <svg class="service-photo" viewBox="688 314 300 269" role="img" aria-label="Prestij çalışanı ahşap dolabın montajını yapıyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <svg class="service-photo" viewBox="688 314 300 211" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Prestij çalışanı ahşap dolabın montajını yapıyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
           <div class="service-body">
             <span class="service-icon"><svg aria-hidden="true"><use href="#icon-tools"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
             <h3>Mobilya Montajı</h3>
@@ -155,7 +154,7 @@
           </div>
         </article>
         <article class="service-card">
-          <svg class="service-photo" viewBox="1005 314 303 269" role="img" aria-label="Bir koli koruyucu balonlu ambalajla paketleniyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <svg class="service-photo" viewBox="1005 314 303 211" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bir koli koruyucu balonlu ambalajla paketleniyor"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
           <div class="service-body">
             <span class="service-icon"><svg aria-hidden="true"><use href="#icon-box"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
             <h3>Paketleme Hizmeti</h3>
@@ -164,7 +163,7 @@
           </div>
         </article>
         <article class="service-card">
-          <svg class="service-photo" viewBox="1324 314 305 269" role="img" aria-label="Bina dışında Prestij eşyalarını taşıyan nakliye asansörü"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
+          <svg class="service-photo" viewBox="1324 314 305 211" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bina dışında Prestij eşyalarını taşıyan nakliye asansörü"><image href="assets/services-reference.png" width="1672" height="941"/></svg>
           <div class="service-body">
             <span class="service-icon"><svg aria-hidden="true"><use href="#icon-building"/></svg></span><span class="service-corner-arrow" aria-hidden="true">›</span>
             <h3>Asansörlü Taşıma</h3>
