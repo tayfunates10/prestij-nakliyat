@@ -16,11 +16,13 @@
   <link rel="stylesheet" href="coverage.css">
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="gallery.css">
   <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
   <script src="script.js" defer></script>
   <script src="hero.js" defer></script>
   <script src="services.js" defer></script>
   <script src="contact.js" defer></script>
+  <script src="gallery.js" defer></script>
 </head>
 <body>
   <header class="site-header" id="ana-sayfa">
@@ -322,6 +324,32 @@
       </div>
       <svg class="coverage-map" viewBox="640 1086 371 98" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Zonguldak işaretli, altın çizgili temsili hizmet bölgesi haritası"><image href="assets/coverage-reference.png" width="1055" height="1491"/></svg>
     </section>
+    <section class="gallery" id="galeri" aria-labelledby="gallery-title">
+      <header class="gallery-heading"><p>GALERİ</p><h2 id="gallery-title">Taşımalarımızdan <span class="gold-text">Kareler</span></h2></header>
+      <div class="gallery-grid">
+        <figure class="gallery-card">
+          <button class="gallery-photo-button" type="button" data-photo="0" aria-haspopup="dialog" aria-label="Beyaz Fiat nakliye aracının fotoğrafını büyüt"><img src="assets/gallery/fiat-nakliye-araci.jpeg" width="734" height="556" alt="Sokakta park halindeki beyaz Fiat kapalı kasa nakliye aracı" loading="lazy" decoding="async"><span class="gallery-enlarge" aria-hidden="true">↗</span></button>
+          <figcaption class="gallery-band"><strong>PRESTİJ NAKLİYAT</strong><a href="tel:+905321234567" aria-label="0532 123 45 67 numarasını arayın">☎ <span>0532 123 45 67</span></a><span class="gallery-location"><svg aria-hidden="true"><use href="#icon-pin"/></svg>Zonguldak Merkez</span></figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <button class="gallery-photo-button" type="button" data-photo="1" aria-haspopup="dialog" aria-label="Araç içindeki paketlenmiş eşyaların fotoğrafını büyüt"><img src="assets/gallery/arac-ici-paketleme.jpeg" width="720" height="960" alt="Nakliye aracının kasasına yerleştirilmiş kırmızı koruyucu ambalajlı eşyalar" loading="lazy" decoding="async"><span class="gallery-enlarge" aria-hidden="true">↗</span></button>
+          <figcaption class="gallery-band"><strong>PRESTİJ NAKLİYAT</strong><a href="tel:+905321234567" aria-label="0532 123 45 67 numarasını arayın">☎ <span>0532 123 45 67</span></a><span class="gallery-location"><svg aria-hidden="true"><use href="#icon-pin"/></svg>Zonguldak Merkez</span></figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <button class="gallery-photo-button" type="button" data-photo="2" aria-haspopup="dialog" aria-label="Koruyucu ambalajla sarılmış eşyaların fotoğrafını büyüt"><img src="assets/gallery/korumali-esyalar.jpeg" width="720" height="960" alt="Oda içinde taşınmaya hazırlanmış, koruyucu ambalaj ve streçle sarılmış eşyalar" loading="lazy" decoding="async"><span class="gallery-enlarge" aria-hidden="true">↗</span></button>
+          <figcaption class="gallery-band"><strong>PRESTİJ NAKLİYAT</strong><a href="tel:+905321234567" aria-label="0532 123 45 67 numarasını arayın">☎ <span>0532 123 45 67</span></a><span class="gallery-location"><svg aria-hidden="true"><use href="#icon-pin"/></svg>Zonguldak Merkez</span></figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <button class="gallery-photo-button" type="button" data-photo="3" aria-haspopup="dialog" aria-label="Sarı ve gri tenteli nakliye aracının fotoğrafını büyüt"><img src="assets/gallery/hyundai-nakliye-araci.jpeg" width="1200" height="1600" alt="Sarı ve gri yüksek tenteli beyaz Hyundai nakliye aracı" loading="lazy" decoding="async"><span class="gallery-enlarge" aria-hidden="true">↗</span></button>
+          <figcaption class="gallery-band"><strong>PRESTİJ NAKLİYAT</strong><a href="tel:+905321234567" aria-label="0532 123 45 67 numarasını arayın">☎ <span>0532 123 45 67</span></a><span class="gallery-location"><svg aria-hidden="true"><use href="#icon-pin"/></svg>Zonguldak Merkez</span></figcaption>
+        </figure>
+      </div>
+      <dialog class="gallery-dialog" aria-label="Galeri fotoğrafı">
+        <div class="gallery-viewer-toolbar"><span class="gallery-counter" aria-live="polite">1 / 4</span><button class="gallery-close" type="button" aria-label="Fotoğrafı kapat" autofocus>×</button></div>
+        <div class="gallery-viewer-image"><img alt=""><button class="gallery-previous" type="button" aria-label="Önceki fotoğraf">‹</button><button class="gallery-next" type="button" aria-label="Sonraki fotoğraf">›</button></div>
+        <div class="gallery-viewer-band"><strong>PRESTİJ NAKLİYAT</strong><a href="tel:+905321234567">☎ 0532 123 45 67</a><span>Zonguldak Merkez</span></div>
+      </dialog>
+    </section>
     <section class="contact-strip" aria-label="Sorularınız, teklif talebiniz ve iletişim">
       <div class="contact-column faq-column" id="sss" aria-labelledby="faq-title">
         <p class="contact-eyebrow">SIKÇA SORULAN SORULAR</p>
@@ -395,7 +423,7 @@
         <ul>
           <li><a href="#hakkimizda">Hakkımızda</a></li>
           <li><a href="#tasinma-sureci">Taşıma Süreci</a></li>
-          <li><span class="footer-pending">Galeri</span></li>
+          <li><a href="#galeri">Galeri</a></li>
           <li><a href="#sss">S.S.S.</a></li>
           <li><a href="#iletisim">İletişim</a></li>
         </ul>

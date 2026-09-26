@@ -69,4 +69,10 @@ Form ad, Türkiye telefon numarası, çıkış/varış adresi ve isteğe bağlı
 
 Referans düzenine göre logo, hizmet bağlantıları, kurumsal alan, hizmet bölgeleri, sosyal medya ikonları ve el yazısı slogan eklendi. Hizmet düğmeleri mevcut detay pencerelerini açar; kurumsal bağlantılar hazır bölümlere gider. Bölge bağlantıları hizmet bölgesi alanını açar. Logo sayfa başına döner. Alt satırda 2026 telif bilgisi ve hizmet sloganları yer alır.
 
-Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve `https://instagram.com` adresine bağlanır; kullanıcı hesap adresini daha sonra değiştirecektir. Galeri bölümü henüz oluşturulmadığından footer'daki Galeri metni bağlantı değildir. El yazısı `assets/coverage-reference.png` içindeki footer görselinden alınır.
+Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve `https://instagram.com` adresine bağlanır; kullanıcı hesap adresini daha sonra değiştirecektir. Galeri bağlantısı `#galeri` bölümüne gider. El yazısı `assets/coverage-reference.png` içindeki footer görselinden alınır.
+
+## Galeri
+
+Hizmet Bölgemiz ile SSS/teklif/iletişim alanları arasına dört kullanıcı fotoğrafından oluşan `#galeri` bölümü eklendi. `assets/gallery/` altındaki kaynak JPEG'ler değiştirilmeden kopyalandı. Her kartın altındaki HTML bandında Prestij Nakliyat, mevcut iletişim numarası ve Zonguldak Merkez bulunur; bu bant fotoğraf dosyasına işlenmemiştir.
+
+Önizlemeler eşit boyda alanlara yerleşir; tıklandığında fotoğrafın tamamı kırpılmadan dialog içinde gösterilir. Önceki/sonraki, yön tuşları, Escape, kapatma düğmesi ve dışarı tıklama desteklenir. Telefon linkleri ayrı tıklanabilir öğelerdir. Masaüstünde dört, tablette iki ve mobilde tek sütundur. Üst menü ve footer galeriye bağlanmıştır.
