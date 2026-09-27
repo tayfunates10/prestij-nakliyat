@@ -1,6 +1,6 @@
 (() => {
   const configs = [{id:'coverage-map',zoom:9,districts:true},{id:'contact-map',zoom:13}];
-  const center = [41.4535,31.7894]; // City centre, not a verified business address.
+  const center = [41.4870,31.8384]; // Kilimli town centre (OSM); street-level location of the business address is not verified.
   // Approximate district centres; label direction keeps neighbouring names apart.
   const districts = [
     ['Zonguldak Merkez',41.4535,31.7894,'top'],
@@ -16,7 +16,7 @@
     if (!entry.isIntersecting) return;
     observer.unobserve(entry.target);
     const element = entry.target;
-    if (!window.L) { element.innerHTML='<a class="map-fallback" href="https://www.openstreetmap.org/#map=13/41.4535/31.7894">Zonguldak haritasını aç</a>'; return; }
+    if (!window.L) { element.innerHTML='<a class="map-fallback" href="https://www.openstreetmap.org/#map=14/41.4870/31.8384">Kilimli haritasını aç</a>'; return; }
     const map=L.map(element,{scrollWheelZoom:true,zoomControl:true,zoomSnap:element.dataset.districts?0.25:1});
     if (!element.dataset.districts) map.setView(center,Number(element.dataset.zoom));
     map.zoomControl.setPosition('topleft');
@@ -31,7 +31,7 @@
       });
       map.fitBounds(districts.map(([,lat,lng])=>[lat,lng]),{paddingTopLeft:[40,84],paddingBottomRight:[100,30]});
     } else {
-      L.marker(center,{icon:marker,alt:'Zonguldak Merkez — hizmet bölgesi'}).addTo(map).bindPopup('Zonguldak Merkez<br>Prestij Nakliyat hizmet bölgesi');
+      L.marker(center,{icon:marker,alt:'Prestij Nakliyat — Kilimli adresi'}).addTo(map).bindPopup('Prestij Nakliyat<br>Hisararkası Mah. Merkez Evler Sok. No:3/6<br>Kilimli / Zonguldak');
     }
     const zoomIn=element.querySelector('.leaflet-control-zoom-in'),zoomOut=element.querySelector('.leaflet-control-zoom-out');
     zoomIn.title='Yakınlaştır';zoomIn.setAttribute('aria-label','Yakınlaştır');zoomOut.title='Uzaklaştır';zoomOut.setAttribute('aria-label','Uzaklaştır');

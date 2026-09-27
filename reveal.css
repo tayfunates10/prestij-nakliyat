@@ -1,0 +1,40 @@
+/* Kaydırınca içerik giriş animasyonları (reveal.js işaretler, bitince işaretleri kaldırır).
+   part: metin gruplarının parçaları (üst etiket, başlık, açıklama…) — her biri ayrı yönden, sırayla gelir.
+   Masaüstü ≥901px: parçalar sol → sağ → alt; başlıklar netleşir, kartlar ölçeklenerek yükselir, bloklar iki yandan buluşur.
+   Mobil ≤900px: görseller dahil her şey soldan / sağdan kayar (data-reveal-side), bulanıklık yok.
+   Tetikleme (iki görünümde de): öğe üstten %75 çizgisine gelince başlar (reveal.js).
+   Yalnızca opacity / transform / clip-path / filter: yerleşim kaymaz (CLS yok).
+   --reveal-i: gruptaki sıra (reveal.js yazar), --reveal-offset: türe göre ek gecikme. */
+/* Yandan kayan öğeler yatay kaydırma çubuğu açmasın (clip, dikey kaydırmayı ve sticky'yi etkilemez). */
+#site-content{overflow-x:clip}
+.reveal-ready [data-reveal]{opacity:0;transition-property:opacity,transform,clip-path,filter;transition-delay:calc(var(--reveal-i,0) * var(--reveal-stagger) + var(--reveal-offset,0ms))}
+/* html öneki: türe özel başlangıç kurallarından her zaman güçlü kalır. */
+html.reveal-ready [data-reveal].is-revealed{opacity:1;transform:none;filter:none}
+
+@media(min-width:901px){
+  .reveal-ready [data-reveal]{--reveal-stagger:110ms;transition-duration:.85s;transition-timing-function:cubic-bezier(.16,1,.3,1)}
+  .reveal-ready [data-reveal=part]{--reveal-stagger:140ms;transition-duration:.9s}
+  .reveal-ready [data-reveal=part][data-reveal-side=start]{transform:translateX(-60px)}
+  .reveal-ready [data-reveal=part][data-reveal-side=end]{transform:translateX(60px)}
+  .reveal-ready [data-reveal=part][data-reveal-side=up]{transform:translateY(40px)}
+  .reveal-ready [data-reveal=part]:is(h1,h2,h3){filter:blur(6px)}
+  .reveal-ready [data-reveal=card]{transform:translateY(46px) scale(.94)}
+  .reveal-ready [data-reveal=from-start]{transform:translateX(-70px)}
+  .reveal-ready [data-reveal=from-end]{transform:translateX(70px);--reveal-offset:150ms}
+  .reveal-ready [data-reveal=photo]{transform:scale(1.08);clip-path:inset(8% 8% 8% 8% round 13px);transition-duration:1s}
+  /* Negatif inset: kart gölgesi kırpılmaz. */
+  html.reveal-ready [data-reveal=photo].is-revealed{clip-path:inset(-30px -30px -30px -30px round 13px)}
+  .reveal-ready [data-reveal=rise]{transform:translateY(40px)}
+}
+
+@media(max-width:900px){
+  .reveal-ready [data-reveal]{--reveal-stagger:0ms;transition-duration:.65s;transition-timing-function:cubic-bezier(.22,1,.36,1)}
+  .reveal-ready [data-reveal-side=start]{transform:translateX(-72px)}
+  /* Yan yana duranlarda sağdaki biraz sonra gelir. */
+  .reveal-ready [data-reveal-side=end]{transform:translateX(72px);--reveal-offset:90ms}
+  .reveal-ready [data-reveal=photo][data-reveal-side=start]{transform:translateX(-72px) scale(.92)}
+  .reveal-ready [data-reveal=photo][data-reveal-side=end]{transform:translateX(72px) scale(.92)}
+  /* Metin parçaları çizgiye birlikte gelse de sırayla, dönüşümlü yönlerden gelir. */
+  .reveal-ready [data-reveal=part]{--reveal-stagger:110ms;--reveal-offset:0ms}
+  .reveal-ready [data-reveal=from-start],.reveal-ready [data-reveal=from-end],.reveal-ready [data-reveal=rise]{--reveal-offset:0ms}
+}

@@ -22,6 +22,13 @@ WHATSAPP = "https://wa.me/905321234567"
 ORG_ID = f"{BASE}/#firma"
 SITE_ID = f"{BASE}/#site"
 SIGNATURE = "Her adımda güvenle taşıyoruz"
+# Firma adresi (Kilimli). Posta kodu ve koordinat doğrulanmadığı için şemaya yazılmıyor.
+ADDRESS_STREET = "Hisararkası Mah. Merkez Evler Sok. No:3/6"
+ADDRESS_DISTRICT = "Kilimli"
+ADDRESS_FULL = f"{ADDRESS_STREET}, {ADDRESS_DISTRICT}/Zonguldak"
+MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Hisararkas%C4%B1+Mah.+Merkez+Evler+Sok.+No%3A3%2F6+Kilimli+Zonguldak"
+ALL_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+HOURS_24_7 = {"@type": "OpeningHoursSpecification", "dayOfWeek": ALL_WEEK, "opens": "00:00", "closes": "23:59"}
 
 SERVICES = [
     ("Evden Eve Nakliyat", "Eşyalarınız profesyonel ekibimizle güvenle yeni yuvanıza taşınır."),
@@ -191,14 +198,16 @@ def organization():
         "description": "Zonguldak merkez ve tüm ilçelerinde evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti veren nakliyat firması.",
         "slogan": SIGNATURE,
         "telephone": PHONE_SCHEMA,
-        "address": {"@type": "PostalAddress", "addressLocality": "Zonguldak", "addressRegion": "Zonguldak", "addressCountry": "TR"},
+        "address": {"@type": "PostalAddress", "streetAddress": ADDRESS_STREET, "addressLocality": ADDRESS_DISTRICT,
+                    "addressRegion": "Zonguldak", "addressCountry": "TR"},
+        "hasMap": MAPS_URL,
+        "openingHoursSpecification": [HOURS_24_7],
         "areaServed": [{"@type": "AdministrativeArea", "name": "Zonguldak"}]
         + [{"@type": "City", "name": d["place"], "url": page_url(d)} for d in DISTRICTS],
         "contactPoint": {
             "@type": "ContactPoint", "telephone": PHONE_SCHEMA, "contactType": "customer service",
             "areaServed": "TR", "availableLanguage": "Turkish",
-            "hoursAvailable": {"@type": "OpeningHoursSpecification", "opens": "00:00", "closes": "23:59",
-                               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]},
+            "hoursAvailable": HOURS_24_7,
         },
         "knowsAbout": ["Evden eve nakliyat", "Ofis taşımacılığı", "Mobilya montajı", "Eşya paketleme", "Asansörlü taşıma"],
         "hasOfferCatalog": {
@@ -323,7 +332,7 @@ def area_links(current=None):
 
 def district_page(d, parts, version):
     phone_icon = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.5c.6-.2 1.2.1 1.5.7l1.7 4c.2.5.1 1-.3 1.4l-1.8 1.8a16 16 0 0 0 5.9 5.9l1.8-1.8c.4-.4.9-.5 1.4-.3l4 1.7c.6.3.9.9.7 1.5l-.7 3a1.5 1.5 0 0 1-1.5 1.1A17.9 17.9 0 0 1 2.5 4.7c0-.7.5-1.3 1.1-1.5z"/></svg>')
-    styles = ["styles", "hero", "services", "about", "coverage", "contact", "footer", "layout", "refinements", "district", "backdrop"]
+    styles = ["styles", "hero", "services", "about", "coverage", "contact", "footer", "layout", "refinements", "district", "backdrop", "reveal"]
     css = "\n".join(f'  <link rel="stylesheet" href="{s}.css?v={version}">' for s in styles)
     services = "\n            ".join(
         f"<li><strong>{n}:</strong> {t}</li>" for n, t in [
@@ -348,6 +357,7 @@ def district_page(d, parts, version):
 {css}
   <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
   <script src="script.js?v={version}" defer></script>
+  <script src="reveal.js?v={version}" defer></script>
   <script src="services.js?v={version}" defer></script>
 </head>
 <body id="ana-sayfa" data-page="district">
@@ -473,8 +483,9 @@ def llms(index):
 
 - Firma adı: Prestij Nakliyat
 - Hizmet bölgesi: Zonguldak ili (Merkez, Ereğli, Çaycuma, Devrek, Gökçebey, Alaplı, Kilimli, Kozlu)
+- Adres: {ADDRESS_FULL}
 - Telefon / WhatsApp: {PHONE_DISPLAY} ({PHONE_TEL})
-- İletişim: telefonla veya WhatsApp üzerinden 7/24
+- Çalışma saatleri: 7/24 (haftanın her günü, günün her saati); telefonla veya WhatsApp üzerinden ulaşılabilir
 - Fiyatlandırma: eşya miktarı, kat ve bina durumu, asansör ve paketleme ihtiyacı ile mesafeye göre; ücretsiz keşifte net fiyat verilir
 - Web sitesi: {BASE}/
 

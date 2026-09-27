@@ -2,8 +2,8 @@
 .icon-library{position:absolute;width:0;height:0;overflow:hidden}
 .hero{position:relative;margin:0 20px 24px;overflow:hidden;border-radius:0 0 16px 16px;background:#030303;isolation:isolate}
 .hero-slides{display:grid}
-.hero-slide{position:relative;grid-area:1/1;min-width:0;min-height:clamp(730px,49vw,900px);padding:34px 4% 62px;opacity:0;visibility:hidden;transition:opacity 1s ease,visibility 1s;overflow:hidden;isolation:isolate}
-.hero-slide.is-current{opacity:1;visibility:visible;z-index:1}
+.hero-slide{position:relative;grid-area:1/1;min-width:0;min-height:clamp(730px,49vw,900px);padding:34px 4% 62px;opacity:0;visibility:hidden;transition:opacity 0s 1s,visibility 0s 1s;overflow:hidden;isolation:isolate;background:var(--black)}
+.hero-slide.is-current{opacity:1;visibility:visible;z-index:1;transition:opacity 1s ease,visibility 0s}
 .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-3;transform:scale(1.025);transition:transform 8s linear}
 .is-current .hero-image{transform:scale(1)}
 .hero-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#000 0%,#000c 23%,#0008 38%,transparent 59%),linear-gradient(0deg,#000b,transparent 24%)}
@@ -48,7 +48,8 @@
 .hero-benefits--wide strong{font-size:clamp(22px,1.8vw,30px);font-weight:700;margin-bottom:2px}
 .hero-benefits--wide .benefit-icon{width:86px;height:86px;box-shadow:0 0 18px #e8b43a33;border-color:#ffd576}
 .hero-benefits--wide .benefit-icon svg{width:44px;height:46px}
-.is-current .hero-copy{animation:copy-entrance .85s ease both}
+/* Butonlar slayt değişiminde sabit kalır; yalnızca diğer içerik animasyonla girer. */
+.is-current .hero-copy>:not(.hero-actions){animation:copy-entrance .85s ease both}
 .hero-controls{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:10px;padding:0 10px;border:1px solid #8e6b2c55;border-radius:30px;background:#050505ab;backdrop-filter:blur(8px)}
 .hero-controls button{display:grid;place-items:center;color:#ffe29b;background:none;border:0;cursor:pointer;min-width:36px;height:36px;padding:0}
 @keyframes copy-entrance{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
@@ -59,4 +60,4 @@
 @media(max-width:600px){.hero{margin:0 10px 14px}.hero-slide,.hero-slide--planning{padding:0 18px 70px}.hero-image{height:300px;width:calc(100% + 36px);margin:0 -18px}.hero-shade{background:linear-gradient(0deg,#000 0%,#000 64%,transparent 82%)}.hero-brand{width:250px;max-width:80%;margin-bottom:18px}.hero-copy,.hero-slide--planning .hero-copy{margin-top:-3px}.hero-eyebrow{font-size:11px;padding:8px 10px;gap:5px;letter-spacing:0}.hero-eyebrow svg{width:14px;height:17px}.hero-title{font-size:clamp(26px,7.6vw,45px);letter-spacing:-1px}.hero-title>span{white-space:normal}.hero-title .hero-title-emphasis{font-size:1.3em}.hero-description{font-size:16px;line-height:1.5;margin-bottom:20px}.hero-actions{flex-direction:column;gap:12px}.hero-button{flex:auto;min-height:59px;justify-content:flex-start;padding:12px 18px;font-size:17px;border-radius:13px}.hero-button>svg{width:27px;height:29px}.hero-benefits--compact{gap:19px 10px;margin-top:25px}.hero-benefits--compact li{gap:9px}.hero-benefits--compact li>span:last-child{font-size:14px;white-space:normal}.benefit-icon{width:44px;height:44px}.benefit-icon svg{width:24px;height:26px}.hero-slide--planning .hero-title{font-size:clamp(26px,7.5vw,44px);line-height:1.18}.hero-slide--planning .planning-emphasis{letter-spacing:-1px;white-space:nowrap}.hero-brand-tagline{font-size:10px;margin:5px 0 21px 20px}.hero-benefits--wide li>span:last-child{font-size:16px}.hero-benefits--wide strong{font-size:21px}.hero-benefits--wide .benefit-icon{width:48px;height:48px}.hero-benefits--wide{gap:16px}.hero-controls{bottom:14px}.planning-emphasis:after{bottom:-15px}}
 .hero-brand{mix-blend-mode:screen}
 @media(max-width:360px){.hero-button{font-size:15px;padding:12px;gap:8px}.hero-button .button-arrow{width:20px}.hero-button>span{white-space:normal;min-width:0}.hero-eyebrow{font-size:10px}.hero-slide--planning .planning-emphasis{font-size:.95em}}
-@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.is-current .hero-copy{animation:none}.hero-image{transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.is-current .hero-copy>:not(.hero-actions){animation:none}.hero-image{transform:none;transition:none}}
