@@ -125,6 +125,6 @@ Yerel çalıştırma: depo klasöründe `python -m http.server 4173 --bind 127.0
 
 ## Favicon
 
-Favicon doğrudan `assets/logo.png` içindeki gerçek Prestij Nakliyat logosunu kullanır; yeniden çizilmiş bir simge değildir. Orijinal PNG değiştirilmeden `favicon.svg` içine gömülür. SVG görüntü alanı boş kenarları daraltır; kamyon, çatı, marka yazısı ve alt açıklama korunur.
+Favicon `assets/logo.png` içindeki gerçek amblemin yalnızca çatı, yol ve kamyon bölümünü kullanır. PRESTİJ, NAKLİYAT ve alt açıklama yazıları görüntü alanının dışında bırakılır. Orijinal PNG yeniden çizilmeden veya değiştirilmeden `favicon.svg` içine gömülür; amblem kare siyah zeminde ortalanır.
 
 Uyumluluk dosyaları 16/32/48 piksel PNG, üç boyutu içeren `favicon.ico` ve 180×180 `assets/apple-touch-icon.png` dosyasıdır. Tüm HTML sayfaları ve `tools/build_districts.py` aynı sürümlü bağlantıları içerir.
