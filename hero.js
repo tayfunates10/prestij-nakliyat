@@ -37,6 +37,25 @@
   dots.forEach(dot => {
     dot.addEventListener('click', () => show(Number(dot.dataset.slide)));
   });
+  // Dokunmatik ekranda parmakla sola kaydırma sonraki, sağa kaydırma önceki slayta geçer.
+  // Yalnızca belirgin yatay hareket sayılır; dikey sayfa kaydırması etkilenmez (dinleyiciler pasif).
+  const slideArea = hero.querySelector('.hero-slides');
+  let touchX = null;
+  let touchY = 0;
+  slideArea.addEventListener('touchstart', event => {
+    if (event.touches.length !== 1) { touchX = null; return; }
+    touchX = event.touches[0].clientX;
+    touchY = event.touches[0].clientY;
+  }, { passive: true });
+  slideArea.addEventListener('touchend', event => {
+    if (touchX === null) return;
+    const dx = event.changedTouches[0].clientX - touchX;
+    const dy = event.changedTouches[0].clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) show(current + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+  slideArea.addEventListener('touchcancel', () => { touchX = null; }, { passive: true });
+
   hero.addEventListener('focusin', () => { focused = true; schedule(); });
   hero.addEventListener('focusout', () => {
     queueMicrotask(() => { focused = hero.contains(document.activeElement); schedule(); });
