@@ -21,7 +21,8 @@
 .district-faq{max-width:1080px;margin:0 0 34px}
 .district-faq .faq-list summary{font-size:18px;padding-block:14px}
 .district-faq .faq-list details>p{font-size:17px;line-height:1.6}
-.district .about-cta{margin:0 0 34px}
+/* Ücretsiz keşif (discovery.css) ölçülerini bu kapsayıcının genişliğinden alır. */
+.district .discovery-shell{container-type:inline-size;margin:0 0 34px}
 .district-others h2{font-size:clamp(22px,1.7vw,30px)}
 .district-others .coverage-districts{gap:10px}
 .district-others .coverage-districts li{font-size:16px;min-height:38px;padding-inline:13px}

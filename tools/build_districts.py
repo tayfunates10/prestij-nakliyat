@@ -2,7 +2,7 @@
 
 Kullanım (proje kökünden):  python tools/build_districts.py
 
-- Header, ikon kütüphanesi, hizmet penceresi, footer ve mobil hızlı işlem çubuğu
+- Header, ikon kütüphanesi, hizmet penceresi, ücretsiz keşif bölümü, footer ve mobil hızlı işlem çubuğu
   index.html içinden alınır; bu alanlarda değişiklik yaptıktan sonra betiği yeniden çalıştırın.
 - index.html ve galeri.html içindeki <!-- seo:start --> ... <!-- seo:end --> bloğu betik tarafından yazılır;
   elle düzenlemeyin, değişiklikleri buradan yapın.
@@ -22,6 +22,8 @@ WHATSAPP = "https://wa.me/905321234567"
 ORG_ID = f"{BASE}/#firma"
 SITE_ID = f"{BASE}/#site"
 SIGNATURE = "Her adımda güvenle taşıyoruz"
+# index.html'deki ücretsiz keşif başlığı; ilçe sayfalarında ilçe adıyla değiştirilir.
+DISCOVERY_TITLE = "Taşınma tarihiniz belli mi?<br><span>Planı birlikte yapalım.</span>"
 # Firma adresi (Kilimli). Posta kodu ve koordinat doğrulanmadığı için şemaya yazılmıyor.
 ADDRESS_STREET = "Hisararkası Mah. Merkez Evler Sok. No:3/6"
 ADDRESS_DISTRICT = "Kilimli"
@@ -331,8 +333,7 @@ def area_links(current=None):
 
 
 def district_page(d, parts, version):
-    phone_icon = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.5c.6-.2 1.2.1 1.5.7l1.7 4c.2.5.1 1-.3 1.4l-1.8 1.8a16 16 0 0 0 5.9 5.9l1.8-1.8c.4-.4.9-.5 1.4-.3l4 1.7c.6.3.9.9.7 1.5l-.7 3a1.5 1.5 0 0 1-1.5 1.1A17.9 17.9 0 0 1 2.5 4.7c0-.7.5-1.3 1.1-1.5z"/></svg>')
-    styles = ["styles", "hero", "services", "about", "coverage", "contact", "footer", "layout", "refinements", "district", "backdrop", "reveal"]
+    styles = ["styles", "hero", "services", "about", "coverage", "contact", "footer", "layout", "refinements", "district", "backdrop", "reveal", "discovery"]
     css = "\n".join(f'  <link rel="stylesheet" href="{s}.css?v={version}">' for s in styles)
     services = "\n            ".join(
         f"<li><strong>{n}:</strong> {t}</li>" for n, t in [
@@ -346,6 +347,7 @@ def district_page(d, parts, version):
     faqs = "\n          ".join(
         f'<details name="district-faq"{" open" if i == 0 else ""}><summary>{esc(q)}<span aria-hidden="true"></span></summary><p>{esc(a)}</p></details>'
         for i, (q, a) in enumerate(d["faqs"]))
+    discovery = parts["discovery"].replace(DISCOVERY_TITLE, f"{d['name']} taşınmanız için<br><span>planı birlikte yapalım.</span>")
     footer = parts["footer"].replace(f'<a href="{page_file(d)}">', f'<a href="{page_file(d)}" aria-current="page">')
     return f"""<!doctype html>
 <html lang="tr">
@@ -418,18 +420,8 @@ def district_page(d, parts, version):
           {faqs}
         </div>
       </div>
-      <div class="about-cta">
-        <span class="about-cta-icon" aria-hidden="true"><svg><use href="#icon-home"/></svg></span>
-        <div class="about-cta-copy">
-          <p class="about-cta-eyebrow">ÜCRETSİZ KEŞİF</p>
-          <h3>{d['name']} taşınmanız için <span class="gold-text">planı birlikte yapalım.</span></h3>
-          <p>Ekibimiz adresinize gelip eşyalarınızı yerinde görür; size özel taşıma planını ve net fiyatı çıkarır.</p>
-        </div>
-        <div class="about-cta-actions">
-          <a class="hero-button hero-button--gold" href="tel:{PHONE_TEL}" aria-label="{PHONE_DISPLAY} numarasını arayın">{phone_icon}<span>{PHONE_DISPLAY}</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-          <a class="hero-button hero-button--green" href="{WHATSAPP}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>WhatsApp’tan Yazın</span><svg class="button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-          <a class="about-cta-quote" href="index.html#teklif-al"><svg aria-hidden="true"><use href="#icon-quote"/></svg><span>Teklif Formunu Doldurun</span></a>
-        </div>
+      <div class="discovery-shell">
+        {discovery}
       </div>
       <div class="district-others">
         <h2>Diğer hizmet bölgelerimiz</h2>
@@ -517,7 +509,9 @@ def main():
         "dialog": between(index, '<dialog class="service-dialog"', "</dialog>"),
         "footer": link_to_home(between(index, '<footer class="site-footer"', "</footer>")),
         "mobile": between(index, '<nav class="mobile-actions"', "</nav>"),
+        "discovery": link_to_home(between(index, '<section class="discovery"', "</section>")),
     }
+    assert DISCOVERY_TITLE in parts["discovery"], "index.html'deki keşif başlığı değişti: DISCOVERY_TITLE'ı güncelleyin"
     for d in DISTRICTS:
         write(page_file(d), district_page(d, parts, version))
     inject_seo("index.html", home_seo(read("index.html")))

@@ -15,9 +15,10 @@
 
   // 1) Bütün olarak gelen bloklar: [seçici, tür]. Aynı ebeveyn altındaki eşleşmeler kademeli gelir.
   const blocks = [
-    ['.service-card, .trust-item, .process-step, .district-card, .about-features > li', 'card'],
+    ['.service-card, .trust-item, .process-step, .district-card, .about-features > li, .discovery-home, .discovery-features > li', 'card'],
     ['.about-photo-wrap', 'from-start'],
-    ['.coverage-map-panel', 'from-end'],
+    // .discovery-actions kendisi değil butonları: kutu dikey ortalama için transform kullanıyor (discovery.css).
+    ['.coverage-map-panel, .discovery-scene, .discovery-action', 'from-end'],
     ['.gallery-card', 'photo'],
     ['.gallery-more', 'rise'],
   ];
@@ -31,7 +32,7 @@
   // 2) Metin grupları parçalarına ayrılır: üst etiket, başlık, açıklama… her biri ayrı yönden ve sırayla gelir.
   //    Masaüstü: sol → sağ → alt döngüsü. Mobil: sol ↔ sağ.
   //    İç içe grup olan veya içinde zaten animasyonlu öğe bulunan çocuklar atlanır (kendi başlarına işlenir).
-  const textGroups = '.services-heading, .trust-heading, .process-heading, .gallery-heading, .about-copy, .about-cta, .about-cta-copy, .coverage-copy, .contact-column, .district-intro, .district-faq, .district-others';
+  const textGroups = '.services-heading, .trust-heading, .process-heading, .gallery-heading, .about-copy, .discovery-copy, .coverage-copy, .contact-column, .district-intro, .district-faq, .district-others';
   const sides = mobile ? ['start', 'end'] : ['start', 'end', 'up'];
   document.querySelectorAll(textGroups).forEach(group => {
     if (group.closest('.hero, dialog')) return;
