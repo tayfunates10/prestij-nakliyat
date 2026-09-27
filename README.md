@@ -125,6 +125,6 @@ Yerel çalıştırma: depo klasöründe `python -m http.server 4173 --bind 127.0
 
 ## Favicon
 
-Sekme simgesi logodaki altın çatı, yol kıvrımı ve beyaz nakliye kamyonundan oluşan sade bir vektör işarettir. Küçük boyutta okunamayan marka yazıları simgeye dahil edilmez; ana logo değiştirilmemiştir.
+Favicon doğrudan `assets/logo.png` içindeki gerçek Prestij Nakliyat logosunu kullanır; yeniden çizilmiş bir simge değildir. Orijinal PNG değiştirilmeden `favicon.svg` içine gömülür. SVG görüntü alanı boş kenarları daraltır; kamyon, çatı, marka yazısı ve alt açıklama korunur.
 
-Kaynak `favicon.svg`; uyumluluk dosyaları 16/32/48 piksel PNG, üç boyutu içeren `favicon.ico` ve 180×180 `assets/apple-touch-icon.png` dosyasıdır. Raster sürümler SVG'den doğrudan ilgili boyuta çizilmiştir. Tüm HTML sayfaları ve `tools/build_districts.py` aynı sürümlü bağlantıları içerir.
+Uyumluluk dosyaları 16/32/48 piksel PNG, üç boyutu içeren `favicon.ico` ve 180×180 `assets/apple-touch-icon.png` dosyasıdır. Tüm HTML sayfaları ve `tools/build_districts.py` aynı sürümlü bağlantıları içerir.
