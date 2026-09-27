@@ -15,10 +15,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://prestijevdenevenakliyat.com"
 LASTMOD = "2026-09-27"
-PHONE_DISPLAY = "0532 123 45 67"
-PHONE_TEL = "+905321234567"
-PHONE_SCHEMA = "+90-532-123-45-67"
-WHATSAPP = "https://wa.me/905321234567"
+PHONE_DISPLAY = "0552 475 01 67"
+PHONE_TEL = "+905524750167"
+PHONE_SCHEMA = "+90-552-475-01-67"
+WHATSAPP = "https://wa.me/905524750167"
 ORG_ID = f"{BASE}/#firma"
 SITE_ID = f"{BASE}/#site"
 SIGNATURE = "Her adımda güvenle taşıyoruz"
@@ -55,7 +55,7 @@ DISTRICTS = [
     {
         "slug": "eregli", "name": "Ereğli", "upper": "EREĞLİ", "locative": "Ereğli’de", "ablative": "Ereğli’den",
         "place": "Karadeniz Ereğli, Zonguldak",
-        "description": "Karadeniz Ereğli evden eve nakliyat: paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif ve net fiyat için Prestij Nakliyat: 0532 123 45 67.",
+        "description": "Karadeniz Ereğli evden eve nakliyat: paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif ve net fiyat için Prestij Nakliyat: 0552 475 01 67.",
         "hero": "Kdz. Ereğli’de ev ve ofis taşımalarınızı ücretsiz keşifle planlıyor, eşyalarınızı paketleyip yeni adresinize güvenle taşıyoruz.",
         "lead": "Prestij Nakliyat, Karadeniz Ereğli’de evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti veren Zonguldak merkezli bir nakliyat firmasıdır. Fiyat, ücretsiz keşifte eşyalarınız yerinde görülerek net olarak belirlenir.",
         "body": "Ereğli, sahil boyunca uzanan mahalleleri ve yamaçlara yayılan yerleşimiyle kat yüksekliği, sokak genişliği ve park imkânı adresten adrese değişen bir ilçedir. Bu yüzden her taşımadan önce bina girişini, kat sayısını ve aracın yanaşacağı noktayı keşifte birlikte netleştiriyoruz. Ereğli içindeki taşınmaların yanı sıra Ereğli’den Zonguldak merkeze, Alaplı’ya ya da diğer ilçelere taşınmalarda da aynı ekip ve planla çalışıyoruz.",
@@ -69,7 +69,7 @@ DISTRICTS = [
     {
         "slug": "kozlu", "name": "Kozlu", "upper": "KOZLU", "locative": "Kozlu’da", "ablative": "Kozlu’dan",
         "place": "Kozlu, Zonguldak",
-        "description": "Kozlu evden eve nakliyat: yokuşlu sokaklara ve yüksek katlara uygun planla paketleme, montaj ve asansörlü taşıma. Ücretsiz keşif: 0532 123 45 67.",
+        "description": "Kozlu evden eve nakliyat: yokuşlu sokaklara ve yüksek katlara uygun planla paketleme, montaj ve asansörlü taşıma. Ücretsiz keşif: 0552 475 01 67.",
         "hero": "Zonguldak merkeze komşu Kozlu’da yokuşlu sokaklara ve yüksek katlara uygun planla ev ve ofis taşıyoruz.",
         "lead": "Prestij Nakliyat, Kozlu’da evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti verir. Zonguldak merkeze komşu Kozlu’daki taşınmalarınızı ücretsiz keşifle planlar, net fiyatı keşifte veririz.",
         "body": "Kozlu, kıyıdan yamaçlara doğru yükselen mahalleleri ve eğimli sokaklarıyla bilinir; taşımada en çok zaman alan kısım çoğu zaman aracın bina önüne yanaşması ve merdivenli girişlerdir. Keşifte bu noktaları görüp ekibi ve ekipmanı buna göre hazırlıyoruz. Kozlu’dan Zonguldak merkeze, Kilimli’ye veya il içindeki başka bir adrese taşınmalarda da hizmet veriyoruz.",
@@ -83,7 +83,7 @@ DISTRICTS = [
     {
         "slug": "kilimli", "name": "Kilimli", "upper": "KİLİMLİ", "locative": "Kilimli’de", "ablative": "Kilimli’den",
         "place": "Kilimli, Zonguldak",
-        "description": "Kilimli evden eve nakliyat: müstakil ev ve apartman taşımalarında paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif: 0532 123 45 67.",
+        "description": "Kilimli evden eve nakliyat: müstakil ev ve apartman taşımalarında paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif: 0552 475 01 67.",
         "hero": "Kilimli’de müstakil evden apartman dairesine kadar her taşınmayı ücretsiz keşifle planlıyor, güvenle taşıyoruz.",
         "lead": "Prestij Nakliyat, Kilimli’de evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti verir. Kilimli’den Zonguldak merkeze ve diğer ilçelere yapılan taşınmalarda da aynı ekip ve planla çalışırız.",
         "body": "Zonguldak merkezin doğusunda, kıyı boyunca uzanan Kilimli’de müstakil evlerden apartman dairelerine kadar farklı konut tipleri bir arada bulunur. Müstakil evlerde bahçe ve depo eşyalarını, apartmanlarda kat ve asansör durumunu keşifte ayrı ayrı değerlendirip taşımayı buna göre planlıyoruz.",
@@ -97,7 +97,7 @@ DISTRICTS = [
     {
         "slug": "caycuma", "name": "Çaycuma", "upper": "ÇAYCUMA", "locative": "Çaycuma’da", "ablative": "Çaycuma’dan",
         "place": "Çaycuma, Zonguldak",
-        "description": "Çaycuma evden eve nakliyat: Filyos ve çevre köyler dahil paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif ve net fiyat: 0532 123 45 67.",
+        "description": "Çaycuma evden eve nakliyat: Filyos ve çevre köyler dahil paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif ve net fiyat: 0552 475 01 67.",
         "hero": "Çaycuma merkez, Filyos ve çevre köylerde ev ve ofis taşımalarınızı ücretsiz keşifle planlıyoruz.",
         "lead": "Prestij Nakliyat, Çaycuma’da ve Filyos başta olmak üzere ilçenin mahalle ve köylerinde evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti verir.",
         "body": "Filyos Çayı boyunca uzanan Çaycuma; ilçe merkezi, Filyos kıyısı ve çevre köyleriyle geniş bir alana yayılır. Adresler arası mesafe arttıkça planlama önem kazandığı için eşyaları güvenle taşıyacak araç ve ekip düzenini keşifte belirliyoruz. Çaycuma’dan Zonguldak merkeze, Gökçebey’e, Devrek’e veya Ereğli’ye taşınmalarda da hizmet veriyoruz.",
@@ -111,7 +111,7 @@ DISTRICTS = [
     {
         "slug": "devrek", "name": "Devrek", "upper": "DEVREK", "locative": "Devrek’te", "ablative": "Devrek’ten",
         "place": "Devrek, Zonguldak",
-        "description": "Devrek evden eve nakliyat: uzun yola uygun paketleme, mobilya montajı ve asansörlü taşıma. Devrek’ten il geneline taşıma, ücretsiz keşif: 0532 123 45 67.",
+        "description": "Devrek evden eve nakliyat: uzun yola uygun paketleme, mobilya montajı ve asansörlü taşıma. Devrek’ten il geneline taşıma, ücretsiz keşif: 0552 475 01 67.",
         "hero": "Devrek içi ve Devrek’ten Zonguldak geneline taşınmalarda eşyalarınızı yola uygun paketliyor, güvenle taşıyoruz.",
         "lead": "Prestij Nakliyat, Devrek’te evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti verir. Devrek içi taşınmaların yanı sıra Zonguldak merkeze ve diğer ilçelere taşınmalarda da yanınızdayız.",
         "body": "Zonguldak’ın iç kesiminde yer alan Devrek, bastonuyla tanınan köklü bir ilçedir. Devrek’ten merkeze ya da sahil ilçelerine yapılan taşınmalar daha uzun bir yol gerektirdiği için eşyaların yola uygun paketlenmesine ve araca dengeli yerleştirilmesine özellikle dikkat ediyoruz. Kış aylarında yol ve hava durumunu da hesaba katarak taşıma gününü sizinle birlikte belirliyoruz.",
@@ -125,7 +125,7 @@ DISTRICTS = [
     {
         "slug": "gokcebey", "name": "Gökçebey", "upper": "GÖKÇEBEY", "locative": "Gökçebey’de", "ablative": "Gökçebey’den",
         "place": "Gökçebey, Zonguldak",
-        "description": "Gökçebey evden eve nakliyat: ilçe merkezi ve köylerde paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif ve net fiyat: 0532 123 45 67.",
+        "description": "Gökçebey evden eve nakliyat: ilçe merkezi ve köylerde paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif ve net fiyat: 0552 475 01 67.",
         "hero": "Gökçebey merkez ve çevre köylerde ev ve ofis taşımalarınızı ücretsiz keşifle planlıyor, güvenle taşıyoruz.",
         "lead": "Prestij Nakliyat, Gökçebey’de evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti verir. Gökçebey içindeki ve Gökçebey’den il geneline yapılan taşınmalar için ücretsiz keşifle net fiyat sunar.",
         "body": "Çaycuma ile Devrek arasında yer alan Gökçebey’de ilçe merkezindeki apartmanlardan çevre köylerdeki müstakil evlere kadar farklı adreslere taşıma yapıyoruz. Küçük bir ilçede bile taşımanın sorunsuz geçmesi iyi plana bağlıdır: eşya listesini, paketlenecek parçaları ve taşıma saatini keşifte birlikte netleştiriyoruz.",
@@ -139,7 +139,7 @@ DISTRICTS = [
     {
         "slug": "alapli", "name": "Alaplı", "upper": "ALAPLI", "locative": "Alaplı’da", "ablative": "Alaplı’dan",
         "place": "Alaplı, Zonguldak",
-        "description": "Alaplı evden eve nakliyat: sahil ve yazlık konut taşımalarında paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif: 0532 123 45 67.",
+        "description": "Alaplı evden eve nakliyat: sahil ve yazlık konut taşımalarında paketleme, mobilya montajı ve asansörlü taşıma. Ücretsiz keşif: 0552 475 01 67.",
         "hero": "Alaplı’da sahil ve iç kesimdeki ev, yazlık ve ofis taşımalarınızı ücretsiz keşifle planlıyoruz.",
         "lead": "Prestij Nakliyat, Alaplı’da evden eve nakliyat, ofis taşımacılığı, paketleme, mobilya montajı ve asansörlü taşıma hizmeti verir. Zonguldak’ın batı ucundaki Alaplı’dan Ereğli’ye, Zonguldak merkeze ve il içindeki diğer adreslere taşınmalarda da hizmet veriyoruz.",
         "body": "Karadeniz kıyısında, Ereğli ile Düzce sınırı arasında yer alan Alaplı’da sahil şeridindeki apartmanlar ile iç kesimdeki müstakil evler farklı taşıma planı gerektirir. Yazlık ve sahil konutlarındaki taşınmalarda da eşyaların paketlenmesini, sökülüp kurulmasını ve yeni adrese yerleştirilmesini tek plan içinde yürütüyoruz.",
@@ -301,7 +301,7 @@ def home_seo(index):
     url = f"{BASE}/"
     title = "Zonguldak Evden Eve Nakliyat | Prestij Nakliyat"
     description = ("Zonguldak evden eve nakliyat: Merkez, Ereğli, Çaycuma, Devrek, Alaplı, Kilimli, Kozlu ve Gökçebey’de "
-                   "paketlemeli, sigortalı, asansörlü taşıma. Ücretsiz keşif: 0532 123 45 67.")
+                   "paketlemeli, sigortalı, asansörlü taşıma. Ücretsiz keşif: 0552 475 01 67.")
     nodes = [organization(), website(),
              {"@type": "WebPage", "@id": f"{url}#sayfa", "url": url, "name": title, "description": description,
               "inLanguage": "tr-TR", "isPartOf": {"@id": SITE_ID}, "about": {"@id": ORG_ID},
