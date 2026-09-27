@@ -125,6 +125,6 @@ Yerel çalıştırma: depo klasöründe `python -m http.server 4173 --bind 127.0
 
 ## Favicon
 
-Favicon `assets/logo.png` içindeki gerçek amblemin yalnızca çatı, yol ve kamyon bölümünü kullanır. PRESTİJ, NAKLİYAT ve alt açıklama yazıları görüntü alanının dışında bırakılır. Orijinal PNG yeniden çizilmeden veya değiştirilmeden `favicon.svg` içine gömülür; amblem kare siyah zeminde ortalanır.
+Tarayıcı sekmesinde doğrudan `favicon.png` (512×512) kullanılır. Simge, `assets/logo.png` içindeki gerçek çatı, yol ve kamyon amblemidir; yazılar dahil değildir. Amblemin görünür sınırları (x=83, y=158, 383×164) esas alınarak yatay boşluklar tamamen kaldırılmıştır. En-boy oranı korunarak kare ikonun tüm genişliğini doldurur.
 
-Uyumluluk dosyaları 16/32/48 piksel PNG, üç boyutu içeren `favicon.ico` ve 180×180 `assets/apple-touch-icon.png` dosyasıdır. Tüm HTML sayfaları ve `tools/build_districts.py` aynı sürümlü bağlantıları içerir.
+16/32/48 piksel PNG, çok boyutlu `favicon.ico` ve 180×180 Apple simgesi de aynı kaynaktan üretilir. `favicon.svg` yalnızca dışa aktarma kaynağıdır; hiçbir sayfa SVG favicon çağırmaz. Ana sayfa, galeri, ilçe sayfaları ve üretim şablonu aynı sürümlü PNG bağlantılarını kullanır.
