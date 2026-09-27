@@ -28,7 +28,7 @@
       `Yeni Adres (Nereye): ${form.elements.destination.value.trim()}`,
       ...(form.elements.notes.value.trim() ? [`Notlar: ${form.elements.notes.value.trim()}`] : [])
     ].join('\n');
-    const url = `https://wa.me/905321234567?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/905524750167?text=${encodeURIComponent(message)}`;
     continueLink.href = url;
     status.textContent = 'Talebiniz hazır. Gönderimi WhatsApp’ta tamamlayın. Pencere açılmadıysa aşağıdaki bağlantıyı kullanabilirsiniz.';
     result.hidden = false;
