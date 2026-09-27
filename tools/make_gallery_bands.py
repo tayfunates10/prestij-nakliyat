@@ -25,10 +25,10 @@ LOCATION = "Merkez / Zonguldak"
 # Kart oranı yaklaşık 4 / 4.2 (refinements.css .gallery-photo-button).
 # (kaynak, çıktı boyutu, kırpma: kaynağın solundan/üstünden piksel; None = ortala)
 PHOTOS = [
-    ("fiat-nakliye-araci", (529, 556), (103, 0)),
     ("arac-ici-paketleme", (720, 756), (0, 102)),
-    ("korumali-esyalar", (720, 756), (0, 102)),
+    ("fiat-nakliye-araci", (529, 556), (103, 0)),
     ("fiat-nakliye-araci-istasyon", (1200, 1260), (0, 110)),
+    ("korumali-esyalar", (720, 756), (0, 102)),
 ]
 
 # 720 x 756 tasarım ölçüleri (px)
