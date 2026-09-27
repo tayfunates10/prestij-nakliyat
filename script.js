@@ -65,3 +65,16 @@ function nudgeQuickAction() {
 }
 
 if (quickActions.length) setTimeout(nudgeQuickAction, 1200);
+
+// Header logosu: tıklama/dokunmada seçim efekti (styles.css .is-tapped). Art arda basışlarda efekt baştan oynar.
+const brandLink = document.querySelector('.site-header .brand');
+if (brandLink) {
+  let brandTimer;
+  brandLink.addEventListener('click', () => {
+    brandLink.classList.remove('is-tapped');
+    void brandLink.offsetWidth;
+    brandLink.classList.add('is-tapped');
+    clearTimeout(brandTimer);
+    brandTimer = setTimeout(() => brandLink.classList.remove('is-tapped'), 900);
+  });
+}
