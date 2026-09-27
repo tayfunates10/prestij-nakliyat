@@ -1,0 +1,29 @@
+/* İlçe açılış sayfaları (tools/build_districts.py ile üretilir) */
+.district{position:relative;max-width:var(--page-width);margin:0 auto;padding:var(--section-space) var(--page-gutter);border-top:1px solid #af822c;background:radial-gradient(ellipse at 100% 0,#2a1f0833,transparent 55%),#030404}
+.district:after{content:'';position:absolute;left:0;top:-1px;width:140px;height:1px;background:linear-gradient(90deg,#fff0b6,transparent);box-shadow:0 0 15px #ecc04e80;pointer-events:none}
+.district-breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px 0;list-style:none;margin:0 0 28px;padding:0;font-size:15px;color:#a9a59b}
+.district-breadcrumb li+li:before{content:'›';margin:0 10px;color:#d4ad53}
+.district-breadcrumb a{color:#e9d9ae;text-decoration:none}
+.district-breadcrumb a:hover{color:#ffe29b;text-decoration:underline}
+.district-breadcrumb [aria-current]{color:#f4c860;font-weight:700}
+.district-eyebrow{margin:0 0 10px;font:700 14px/1.2 Arial,sans-serif;letter-spacing:2px;color:#efc45d}
+.district h2{margin:0 0 16px;font-family:Montserrat,Arial,sans-serif;font-size:clamp(26px,2.3vw,40px);font-weight:800;line-height:1.2;letter-spacing:-.5px;color:#f8f8f8}
+.district-intro{max-width:1080px}
+.district-intro p{margin:0 0 14px;font-size:19px;line-height:1.6;color:#cfcbc2}
+.district-intro .district-lead{font-size:21px;color:#f1ece0}
+.district-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:34px 0}
+.district-card{padding:28px 30px;border:1px solid #c3a25555;border-radius:16px;background:linear-gradient(140deg,#14130d,#060605)}
+.district-card h3{margin:0 0 16px;font-family:Montserrat,Arial,sans-serif;font-size:clamp(20px,1.5vw,25px);line-height:1.25;color:#fff}
+.district-list{display:grid;gap:12px;list-style:none;margin:0;padding:0}
+.district-list li{position:relative;padding-left:30px;font-size:18px;line-height:1.5;color:#cfcbc2}
+.district-list li:before{content:'';position:absolute;left:2px;top:.45em;width:14px;height:8px;border-left:2.5px solid #f2c762;border-bottom:2.5px solid #f2c762;transform:rotate(-45deg)}
+.district-list strong{color:#f4ecd8}
+.district-faq{max-width:1080px;margin:0 0 34px}
+.district-faq .faq-list summary{font-size:18px;padding-block:14px}
+.district-faq .faq-list details>p{font-size:17px;line-height:1.6}
+.district .about-cta{margin:0 0 34px}
+.district-others h2{font-size:clamp(22px,1.7vw,30px)}
+.district-others .coverage-districts{gap:10px}
+.district-others .coverage-districts li{font-size:16px;min-height:38px;padding-inline:13px}
+@media(max-width:900px){.district-grid{grid-template-columns:1fr}.district-intro p{font-size:17px}.district-intro .district-lead{font-size:19px}.district-list li{font-size:17px}}
+@media(max-width:450px){.district-card{padding:22px 20px}.district-breadcrumb ol{font-size:14px;margin-bottom:22px}.district-faq .faq-list summary{font-size:16px}.district-faq .faq-list details>p{font-size:15px}}

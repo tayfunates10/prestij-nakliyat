@@ -37,6 +37,16 @@ new ResizeObserver(() => {
   }
 }).observe(header);
 
+// Arka plan deseni hero bittikten sonra başlar (backdrop.css --hero-end).
+const pageHero = document.querySelector('.hero');
+const pageContent = document.querySelector('#site-content');
+
+if (pageHero && pageContent) {
+  new ResizeObserver(() => {
+    pageContent.style.setProperty('--hero-end', `${pageHero.offsetTop + pageHero.offsetHeight}px`);
+  }).observe(pageHero);
+}
+
 // Mobile quick actions: attention animations on a random button at random short intervals.
 const quickActions = [...document.querySelectorAll('.mobile-action')];
 const attentionEffects = ['is-pulse', 'is-shake', 'is-pop'];

@@ -1,7 +1,7 @@
 (() => {
   const hero = document.querySelector('.hero');
   const slides = [...hero.querySelectorAll('.hero-slide')];
-  const pauseButton = hero.querySelector('.hero-pause');
+  const dots = [...hero.querySelectorAll('.hero-dot')];
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const interval = 7000;
   let current = 0;
@@ -25,22 +25,17 @@
       slide.setAttribute('aria-hidden', String(!active));
       slide.inert = !active;
     });
+    dots.forEach((dot, i) => {
+      const active = i === current;
+      dot.classList.toggle('is-selected', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
     schedule();
   }
 
-  function renderPause() {
-    pauseButton.setAttribute('aria-pressed', String(paused));
-    pauseButton.setAttribute('aria-label', paused ? 'Otomatik geçişi başlat' : 'Otomatik geçişi duraklat');
-    pauseButton.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
-    schedule();
-  }
-
-  hero.querySelectorAll('[data-step]').forEach(button => {
-    button.addEventListener('click', () => show(current + Number(button.dataset.step)));
-  });
-  pauseButton.addEventListener('click', () => {
-    paused = !paused;
-    renderPause();
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => show(Number(dot.dataset.slide)));
   });
   hero.addEventListener('focusin', () => { focused = true; schedule(); });
   hero.addEventListener('focusout', () => {
@@ -50,14 +45,14 @@
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       event.preventDefault();
       show(current + (event.key === 'ArrowRight' ? 1 : -1));
-
+      dots[current].focus();
     }
   });
   document.addEventListener('visibilitychange', schedule);
   motionPreference.addEventListener('change', event => {
     paused = event.matches;
-    renderPause();
+    schedule();
   });
-  if (document.readyState === 'complete') renderPause();
-  else window.addEventListener('load', renderPause, { once: true });
+  if (document.readyState === 'complete') schedule();
+  else window.addEventListener('load', schedule, { once: true });
 })();

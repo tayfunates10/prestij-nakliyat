@@ -1,0 +1,52 @@
+# Arama motorları
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /*.md$
+
+# Yapay zekâ arama ve yanıt motorları (GEO): içerik alıntılanabilir
+User-agent: GPTBot
+Allow: /
+Disallow: /tools/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /tools/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /tools/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /tools/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /tools/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /tools/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /tools/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /tools/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /tools/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /tools/
+
+User-agent: CCBot
+Allow: /
+Disallow: /tools/
+
+Sitemap: https://prestijevdenevenakliyat.com/sitemap.xml

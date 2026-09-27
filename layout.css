@@ -29,8 +29,11 @@
 .benefit-icon{width:52px;height:52px;aspect-ratio:1;flex:0 0 52px;border:2px solid #edc355;border-radius:50%;background:#080704;box-shadow:none}
 .benefit-icon svg{width:28px;height:28px}
 .hero-controls{gap:10px;padding:0;border:0;background:none;backdrop-filter:none;bottom:18px}
-.hero-controls button,.hero-controls .hero-pause{width:36px;min-width:36px;height:36px;padding:0;border:1px solid #cda74b;border-radius:50%;background:#080704;color:#ffdd85;line-height:1}
-.hero-controls button:hover{background:#392b0d}.hero-controls .hero-pause{font-size:14px}
+.hero-controls .hero-dot{width:28px;min-width:28px;height:28px;padding:0;border:0;border-radius:50%;background:none}
+.hero-dot:before{content:"";width:14px;height:14px;box-sizing:border-box;border:2px solid #cda74b;border-radius:50%;background:#080704b3;transition:background .25s,border-color .25s,box-shadow .25s,transform .25s}
+.hero-dot:hover:before{border-color:#ffdd85;transform:scale(1.12)}
+.hero-dot.is-selected:before{border-color:#ffd36b;background:#ffd36b;box-shadow:0 0 9px #f8bf38a0}
+.hero-dot:focus-visible{outline:2px solid #ffdd85;outline-offset:2px}
 .services{border-top:0}.services .section-eyebrow:before,.services .section-eyebrow:after,.services .section-eyebrow>span:before{display:none}
 .service-photo{aspect-ratio:307/211}
 .service-body{padding:20px;gap:0}

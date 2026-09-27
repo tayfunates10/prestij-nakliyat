@@ -51,10 +51,6 @@
 .is-current .hero-copy{animation:copy-entrance .85s ease both}
 .hero-controls{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:10px;padding:0 10px;border:1px solid #8e6b2c55;border-radius:30px;background:#050505ab;backdrop-filter:blur(8px)}
 .hero-controls button{display:grid;place-items:center;color:#ffe29b;background:none;border:0;cursor:pointer;min-width:36px;height:36px;padding:0}
-.hero-controls .hero-step{font:26px Arial,sans-serif}
-.hero-dot span{width:24px;height:3px;border-radius:3px;background:#786034;transition:background .25s,width .25s}
-.hero-dot.is-selected span{width:34px;background:#ffd36b;box-shadow:0 0 9px #f8bf38a0}
-.hero-controls .hero-pause{font-size:16px;border-left:1px solid #8e6b2c55;padding-left:8px}
 @keyframes copy-entrance{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1800px){.hero-copy{max-width:900px}.hero-slide--planning .hero-copy{max-width:1100px}}
 @media(max-width:1400px) and (min-width:901px){.hero-slide{padding:30px 3.5% 64px;min-height:720px}.hero-copy{width:58%}.hero-brand{width:340px;margin-bottom:20px}.hero-title{font-size:4.4vw}.hero-actions{gap:12px}.hero-button{padding:14px;gap:10px;min-height:66px}.hero-benefits--compact li+li{margin-left:12px;padding-left:12px}.hero-benefits--compact li{gap:8px}.hero-benefits--compact li>span:last-child{font-size:15px}.benefit-icon{width:49px;height:49px}.benefit-icon svg{width:27px;height:29px}.hero-benefits--wide .benefit-icon{width:67px;height:67px}.hero-benefits--wide li{gap:14px}.hero-benefits--wide li+li{padding-left:2%;margin-left:2%}.hero-slide--planning .hero-copy{width:64%}.hero-brand-tagline{font-size:12px;margin-left:54px}.hero-description{font-size:18px}.desktop-break{display:none}}

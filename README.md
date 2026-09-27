@@ -91,6 +91,26 @@ Doğrulama: 320–1983 piksel arasında 13 ekran genişliğinde taşma, header k
 - Hizmet bölgesi ve iletişim haritaları Leaflet 1.9.4 ile gerçek OpenStreetMap verisi kullanır. Haritalar görünür olduklarında yüklenir; sürükleme, +/−, dokunmatik yakınlaştırma desteklenir. Sayfa kaydırmasını engellememesi için fare tekerleğiyle yakınlaştırma kapalıdır. Siyah/altın görünüm CSS ile uygulanır, atıf ayrı ve okunaklıdır.
 - İşaret 41.4535, 31.7894 koordinatındaki Zonguldak merkezini gösterir; doğrulanmış işletme adresi değildir. İşletmenin konumu geldiğinde `maps.js` içindeki merkez/işaret bilgileri ve haritada aç bağlantısı güncellenmelidir.
 - OpenStreetMap standart karo sunucusu: https://tile.openstreetmap.org/{z}/{x}/{y}.png. Normal tarayıcı önbelleği korunur, önceden indirme/offline paketleme yapılmaz. Kullanım politikası: https://operations.osmfoundation.org/policies/tiles/ . Testlerde harita karoları taklit edilmiştir; gerçek görünüm uygulama tarayıcısında kontrol edilmiştir. Leaflet: https://leafletjs.com/examples/quick-start/ . Yerel kütüphane lisansı `assets/vendor/leaflet/LICENSE` içindedir.
-- SSS “Daha Fazlası” bağlantısı `sss.html` sayfasına gider. Sayfa mevcut sorularla çalışır; ileride ek sorularla genişletilebilir.
+- `galeri.html` tüm galeri fotoğraflarını gösterir; ana sayfadaki “Tüm Galeriyi Gör” butonu bu sayfaya gider. Header, hero, footer ve mobil hızlı işlem çubuğu `index.html` ile birebir aynıdır (bölüm bağlantıları `index.html#…` biçimindedir); bu alanlarda yapılan her değişiklik iki dosyaya da uygulanmalıdır. Sayfa her açılışta en üstten başlar. Yeni fotoğraf eklerken kartı `galeri.html` içine sıradaki `data-photo` numarasıyla ekleyin; ana sayfada ilk 4 fotoğraf kalır.
 - Galeri alt bantları fotoğraf alanının içindedir. Tekrarlanabilir tasarım ve başka görsel araçları için talimatlar `GALERI-TASARIM-REHBERI.md` içindedir.
 - Footer sloganı `assets/footer-signature.svg` içinde yeniden oluşturulmuştur; düşük çözünürlüklü raster kırpımı kullanılmaz.
+
+## SEO / GEO — 27 Eylül
+
+Hedef anahtar kelime: **zonguldak evden eve nakliyat**. İlçe aramaları için her ilçenin kendi açılış sayfası vardır. Alan adı: `https://prestijevdenevenakliyat.com`.
+
+- İlçe sayfaları: `eregli-`, `kozlu-`, `kilimli-`, `caycuma-`, `devrek-`, `gokcebey-`, `alapli-evden-eve-nakliyat.html`. Zonguldak Merkez ana sayfadır. Her sayfada ilçeye özgü H1, özet paragraf, hizmetler, dikkat edilen noktalar, 3 soruluk SSS, ücretsiz keşif alanı ve diğer ilçelere bağlantılar bulunur.
+- Hizmet Bölgemiz etiketleri ve footer bölge bağlantıları ilçe sayfalarına gider (iç bağlantı).
+- **Tek kaynak:** `python tools/build_districts.py` ilçe sayfalarını, `index.html` / `galeri.html` içindeki `<!-- seo:start -->…<!-- seo:end -->` bloğunu (title, description, canonical, Open Graph, JSON-LD), `sitemap.xml`, `robots.txt` ve `llms.txt` dosyalarını yeniden üretir. Header, footer veya SSS değiştikten sonra betiği çalıştırın; ilçe sayfalarını ve SEO bloğunu elle düzenlemeyin.
+- JSON-LD: `MovingCompany` (telefon, Zonguldak adresi, hizmet bölgeleri, 7/24 iletişim, hizmet kataloğu), `WebSite`, `WebPage`, `FAQPage` (sayfadaki görünür sorularla birebir), ilçe sayfalarında `Service` + `BreadcrumbList`, galeride `ImageGallery`.
+- E-posta gerçek olmadığı için yapısal veriye eklenmedi. Instagram hesabı gelince `organization()` içine `sameAs` olarak eklenmeli. Açık sokak adresi yoktur; Google İşletme Profili'nde hizmet bölgesi işletmesi olarak aynı telefon ve bölgeler kullanılmalıdır.
+- `robots.txt` arama motorlarına ve yapay zekâ tarayıcılarına (GPTBot, ClaudeBot, PerplexityBot, Google-Extended vb.) izin verir; `tools/` ve `.md` dosyalarını kapatır. `llms.txt` firmanın özetini, hizmetleri, ilçe sayfalarını ve SSS'yi yapay zekâ motorları için sade metinle sunar.
+- Paylaşım görseli `assets/og-image.jpg` (1200×630), logo `assets/logo.png` (600×600), `favicon.svg` ve `assets/apple-touch-icon.png` eklendi.
+- Galeri sayfasında H1 artık "Tüm Galerimiz" başlığıdır; hero başlığı H2'ye çevrildi (görünüm değişmedi). Ana sayfa hero üst etiketi "ZONGULDAK EVDEN EVE NAKLİYAT" oldu.
+- Yayından sonra: Google Search Console ve Bing Webmaster Tools'a `sitemap.xml` gönderin, Google İşletme Profili açın/doğrulayın ve web sitesi alanına bu alan adını yazın.
+
+## Arka plan deseni
+
+Tüm sayfalarda hero'nun altından footer'a kadar silik, altın çizgili taşınma ikonlarından oluşan bir desen vardır (koli, kamyon, ev, kanepe, taşıma arabası, bant, anahtar, gardırop, "bu taraf yukarı" okları, konum işareti vb.). Desen `assets/moving-pattern.svg` dosyasındadır, kesintisiz tekrarlanır ve `python tools/make_pattern.py` ile yeniden üretilir. Stiller `backdrop.css` dosyasındadır; görünürlük `--backdrop-strength` değişkeniyle ayarlanır (masaüstü .13, telefon .11). Desenin görünmesi için bölümlerin düz siyah zeminleri `backdrop.css` içinde şeffaf yapılmıştır; kartlar ve dekoratif ışımalar korunmuştur. Yeni bir bölüm eklerken düz siyah zemin vermeyin.
+
+Hero ile altındaki alan arasındaki geçiş yumuşaktır: hero görselinin alt kısmı sayfa zeminine erir (`.hero-slide:after`), desen ve sıcak ışıma hero bittikten sonra 150 piksel boyunca yavaşça belirir. Hero'nun bittiği nokta `script.js` tarafından ölçülüp `--hero-end` değişkenine yazılır; JavaScript yoksa desen hero'nun arkasında kalır. İlçe sayfalarındaki üst altın çizgi ve köşe ışıması bu geçiş için kaldırıldı.
