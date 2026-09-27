@@ -19,6 +19,8 @@ OPT = ROOT / "assets/opt"
 PAGES = ["index.html", "galeri.html"]
 MARGIN = 0.06
 WEBP = dict(quality=82, method=6)
+# Kart fotoğrafları: orijinal pikseller korunur (kayıpsız WebP, netleştirme/keskinleştirme yok).
+LOSSLESS = {"services-reference", "process-reference"}
 HERO_WIDTHS = [960, 1280, 1672]
 FONTS = ["montserrat-variable", "roboto-condensed-variable"]
 # Temel Latin + Latin-1 + Türkçe (ÇĞİıÖŞÜ çğöşü) + tipografik işaretler
@@ -54,7 +56,8 @@ def convert_svg_crops():
                 box = crop_box(viewbox, image.size)
                 name = f"{Path(src).stem}-{box[0]}-{box[1]}.webp"
                 if name not in made:
-                    image.convert("RGB").crop(box).save(OPT / name, **WEBP)
+                    opts = dict(lossless=True, quality=100, method=6) if Path(src).stem in LOSSLESS else WEBP
+                    image.convert("RGB").crop(box).save(OPT / name, **opts)
                     made[name] = (OPT / name).stat().st_size
                 x0, y0, x1, y1 = box
                 return f'<image href="assets/opt/{name}" x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}"'
