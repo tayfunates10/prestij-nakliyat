@@ -1,0 +1,67 @@
+# main dalına her push'ta siteyi cPanel'e FTPS ile yükler (yalnızca değişen dosyalar).
+# Gerekli GitHub Secrets (Settings → Secrets and variables → Actions):
+#   FTP_SERVER    cPanel FTP sunucusu, ör. ftp.prestijevdenevenakliyat.com
+#   FTP_USERNAME  cPanel'de bu site için açılan FTP hesabı, ör. deploy@prestijevdenevenakliyat.com
+#   FTP_PASSWORD  o FTP hesabının şifresi
+# İsteğe bağlı: FTP_SERVER_DIR — FTP hesabının kök dizini sitenin belge kökü değilse (ör. public_html/).
+name: Siteyi yayınla
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://prestijevdenevenakliyat.com/
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # İlçe sayfaları, sitemap, robots ve llms.txt index.html'den üretilir; commit'lenmemiş fark varsa yayınlama.
+      - name: Üretilen sayfalar güncel mi?
+        run: |
+          python tools/build_districts.py
+          if ! git diff --quiet; then
+            echo "::error::Üretilen dosyalar güncel değil. Yerelde 'python tools/build_districts.py' çalıştırıp commit'leyin."
+            git diff --stat
+            exit 1
+          fi
+
+      - name: cPanel'e yükle (FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            tools/**
+            **/*.md
+            **/node_modules/**
+
+      - name: Canlı site kontrolü
+        run: |
+          sleep 5
+          code=$(curl -s -o page.html -w '%{http_code}' https://prestijevdenevenakliyat.com/)
+          echo "HTTP $code"
+          grep -o '<title>[^<]*</title>' page.html || true
+          if [ "$code" != "200" ] || ! grep -q 'Prestij Nakliyat' page.html; then
+            echo "::error::Canlı site beklenen sayfayı döndürmedi (HTTP $code). cPanel'de alan adının belge kökünü ve yönlendirmeleri kontrol edin."
+            exit 1
+          fi

@@ -130,3 +130,11 @@ Tarayıcı sekmesinde `favicon.png` (512×512 RGBA) kullanılır. Simge, küçü
 Üretim istemi özeti: referans logonun siyah/beyaz/altın renkleriyle, önden simetrik kamyon kabini; 16–32 pikselde okunacak kalın hatlar ve büyük sade şekiller; şeffaf arka plan; yazısız; kareyi dolduran kompozisyon. Bu özel üretilmiş bir favicon simgesidir, orijinal logodan büyütülmüş bir kırpma değildir.
 
 16/32/48 piksel PNG, çok boyutlu `favicon.ico` ve 180×180 Apple simgesi aynı yüksek çözünürlüklü kaynaktan üretilir. `favicon.svg` dışa aktarma kaynağıdır; tüm sayfalar ve ilçe üretim şablonu doğrudan sürümlü PNG bağlantılarını kullanır.
+
+## Yayın (cPanel, otomatik)
+
+`main` dalına her push'ta `.github/workflows/deploy.yml` çalışır: önce `tools/build_districts.py` çıktısının commit'lenmiş olduğunu doğrular, sonra değişen dosyaları FTPS ile cPanel'e yükler ve canlı sitenin açıldığını kontrol eder. Actions sekmesinden **Run workflow** ile elle de tetiklenebilir. `tools/`, `.github/` ve `*.md` dosyaları sunucuya gitmez.
+
+Gerekli GitHub Secrets (Settings → Secrets and variables → Actions): `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`; FTP hesabının kök dizini sitenin belge kökü değilse `FTP_SERVER_DIR` (ör. `public_html/`). FTP hesabı cPanel → FTP Accounts'tan, dizini yalnızca bu sitenin belge kökü olacak şekilde açılır.
+
+`.htaccess` tüm adresleri `https://prestijevdenevenakliyat.com` altında toplar, HTML'i önbelleğe almaz, `?v=` ile sürümlenen CSS/JS'i 1 yıl, görsel ve fontları 30 gün önbellekte tutar.
