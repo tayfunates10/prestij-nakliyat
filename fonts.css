@@ -1,0 +1,10 @@
+/* Site fontları: kendi sunucumuzdan, Latin + Türkçe alt kümeli değişken WOFF2 (tools/optimize_assets.py).
+   Google Fonts @import'u yerine: ek alan adı/istek zinciri yok, head'de preload edilir.
+   "Fallback" yüzleri: font gelene kadar kullanılan Arial / Arial Narrow, gerçek fontun ölçülerine ayarlı
+   (size-adjust ve ascent/descent-override; değerler font dosyalarından ölçüldü) — font gelince yazı genişliği/yüksekliği
+   neredeyse değişmez, düzen kayması (CLS) olmaz. Yedekler ağırlığa göre ayrı: kalın metin normal Arial'la çizilmesin. */
+@font-face{font-family:Montserrat;src:url(assets/fonts/montserrat-variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Roboto Condensed';src:url(assets/fonts/roboto-condensed-variable.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Montserrat Fallback';src:local('Arial Bold'),local('Arial-BoldMT');font-weight:600 900;size-adjust:109.4%;ascent-override:88.5%;descent-override:22.9%;line-gap-override:0%}
+@font-face{font-family:'Roboto Condensed Fallback';src:local('Arial Narrow'),local('ArialNarrow');font-weight:100 500;size-adjust:104.2%;ascent-override:89.1%;descent-override:23.4%;line-gap-override:0%}
+@font-face{font-family:'Roboto Condensed Fallback';src:local('Arial Narrow Bold'),local('ArialNarrow-Bold');font-weight:600 900;size-adjust:101.8%;ascent-override:91.2%;descent-override:24%;line-gap-override:0%}

@@ -37,6 +37,39 @@ new ResizeObserver(() => {
   }
 }).observe(header);
 
+// Header menüsü: sayfada hangi bölümdeyse onun linki altı çizili (.is-active). Yalnızca aynı sayfadaki (#...) bölümler.
+// Header'ın altından ekranın ~%30'una kadarki çizgiyi geçen son bölüm seçilir; aynı satırdaki bölümlerde (masaüstünde
+// SSS / İletişim yan yana) menüde önce geleni, sayfa sonunda son link seçilir. Menüde olmayan bölümlerde öncekinin linki kalır.
+const spyLinks = [...menu.querySelectorAll('.nav-link[href^="#"]')]
+  .map(link => ({ link, target: document.getElementById(link.getAttribute('href').slice(1)) }))
+  .filter(item => item.target);
+if (spyLinks.length > 1) {
+  let spyFrame = 0;
+  let clicked = null;   // aynı satırdaki bölümlerde (ör. İletişim'e tıklanınca) tıklanan link tercih edilir
+  spyLinks.forEach(item => item.link.addEventListener('click', () => { clicked = item; }));
+  const updateActiveLink = () => {
+    spyFrame = 0;
+    const line = header.offsetHeight + innerHeight * 0.3;
+    const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+    let active = spyLinks[0];
+    let activeTop = -Infinity;
+    spyLinks.forEach(item => {
+      const top = item.target === document.body ? -Infinity : item.target.getBoundingClientRect().top;
+      if (top <= line && (top > activeTop || (top === activeTop && item === clicked))) { active = item; activeTop = top; }
+    });
+    if (atBottom) active = spyLinks[spyLinks.length - 1];
+    spyLinks.forEach(item => {
+      item.link.classList.toggle('is-active', item === active);
+      if (item === active) item.link.setAttribute('aria-current', 'location');
+      else item.link.removeAttribute('aria-current');
+    });
+  };
+  const scheduleActiveLink = () => { if (!spyFrame) spyFrame = requestAnimationFrame(updateActiveLink); };
+  addEventListener('scroll', scheduleActiveLink, { passive: true });
+  addEventListener('resize', scheduleActiveLink);
+  updateActiveLink();
+}
+
 // Arka plan deseni hero bittikten sonra başlar (backdrop.css --hero-end).
 const pageHero = document.querySelector('.hero');
 const pageContent = document.querySelector('#site-content');

@@ -5,13 +5,11 @@
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const mobile = matchMedia('(max-width: 900px)').matches;
   const maxStagger = 5;
-  const found = [];
-  const mark = (el, type, index) => {
-    el.dataset.reveal = type;
-    el.style.setProperty('--reveal-i', Math.min(index, maxStagger));
-    found.push(el);
-  };
-  const skip = el => el.closest('.hero, dialog') || el.hasAttribute('data-reveal');
+  // Önce plan (yalnızca okuma: seçiciler ve ölçüler), sonra tek seferde yazma.
+  // Okuma ile yazma iç içe olursa tarayıcı her ölçümde düzeni yeniden hesaplar (PageSpeed: zorunlu yeniden düzenleme).
+  const planned = new Map();   // öğe → { type, index, side }
+  const skip = el => el.closest('.hero, dialog') || planned.has(el);
+  const hasPlannedInside = el => [...planned.keys()].some(other => other !== el && el.contains(other));
 
   // 1) Bütün olarak gelen bloklar: [seçici, tür]. Aynı ebeveyn altındaki eşleşmeler kademeli gelir.
   const blocks = [
@@ -25,7 +23,7 @@
   blocks.forEach(([selector, type]) => {
     document.querySelectorAll(selector).forEach(el => {
       if (skip(el)) return;
-      mark(el, type, [...el.parentElement.children].filter(child => child.matches(selector)).indexOf(el));
+      planned.set(el, { type, index: [...el.parentElement.children].filter(child => child.matches(selector)).indexOf(el) });
     });
   });
 
@@ -37,26 +35,32 @@
   document.querySelectorAll(textGroups).forEach(group => {
     if (group.closest('.hero, dialog')) return;
     [...group.children]
-      .filter(child => !skip(child) && !child.matches(textGroups) && !child.querySelector('[data-reveal]') && child.getClientRects().length)
-      .forEach((child, i) => {
-        child.dataset.revealSide = sides[i % sides.length];
-        mark(child, 'part', i);
-      });
+      .filter(child => !skip(child) && !child.matches(textGroups) && !hasPlannedInside(child) && child.getClientRects().length)
+      .forEach((child, i) => planned.set(child, { type: 'part', index: i, side: sides[i % sides.length] }));
   });
-  if (!found.length) return;
+  if (!planned.size) return;
 
   // Mobil: bloklar da soldan ya da sağdan gelir. Yan yana duranlar bulundukları taraftan,
   // tam genişlikteki (alt alta) bloklar sayfa sırasına göre dönüşümlü olarak gelir.
   if (mobile) {
     const vw = document.documentElement.clientWidth;
     let alternate = 0;
-    found.filter(el => !el.dataset.revealSide)
-      .sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1)
-      .forEach(el => {
+    [...planned].filter(([, plan]) => !plan.side)
+      .sort(([a], [b]) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1)
+      .forEach(([el, plan]) => {
         const box = el.getBoundingClientRect();
-        el.dataset.revealSide = box.width < vw * .6 ? (box.left + box.width / 2 < vw / 2 ? 'start' : 'end') : (alternate++ % 2 ? 'end' : 'start');
+        plan.side = box.width < vw * .6 ? (box.left + box.width / 2 < vw / 2 ? 'start' : 'end') : (alternate++ % 2 ? 'end' : 'start');
       });
   }
+
+  // 3) Yazma: tüm işaretler tek geçişte.
+  const found = [];
+  planned.forEach((plan, el) => {
+    el.dataset.reveal = plan.type;
+    if (plan.side) el.dataset.revealSide = plan.side;
+    el.style.setProperty('--reveal-i', Math.min(plan.index, maxStagger));
+    found.push(el);
+  });
 
   // Animasyon bitince işaretler kaldırılır; kartların kendi hover geçişleri geri gelir.
   const finish = el => {

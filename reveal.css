@@ -21,7 +21,8 @@ html.reveal-ready [data-reveal].is-revealed{opacity:1;transform:none;filter:none
   .reveal-ready [data-reveal=card]{transform:translateY(46px) scale(.94)}
   .reveal-ready [data-reveal=from-start]{transform:translateX(-70px)}
   .reveal-ready [data-reveal=from-end]{transform:translateX(70px);--reveal-offset:150ms}
-  .reveal-ready [data-reveal=photo]{transform:scale(1.08);clip-path:inset(8% 8% 8% 8% round 13px);transition-duration:1s}
+  /* Galeri fotoğrafları ölçeklenmez (yakınlaşma gibi görünüyordu): kenarlardan açılan perde + hafif yükselme. */
+  .reveal-ready [data-reveal=photo]{transform:translateY(24px);clip-path:inset(8% 8% 8% 8% round 13px);transition-duration:1s}
   /* Negatif inset: kart gölgesi kırpılmaz. */
   html.reveal-ready [data-reveal=photo].is-revealed{clip-path:inset(-30px -30px -30px -30px round 13px)}
   .reveal-ready [data-reveal=rise]{transform:translateY(40px)}
@@ -32,8 +33,6 @@ html.reveal-ready [data-reveal].is-revealed{opacity:1;transform:none;filter:none
   .reveal-ready [data-reveal-side=start]{transform:translateX(-72px)}
   /* Yan yana duranlarda sağdaki biraz sonra gelir. */
   .reveal-ready [data-reveal-side=end]{transform:translateX(72px);--reveal-offset:90ms}
-  .reveal-ready [data-reveal=photo][data-reveal-side=start]{transform:translateX(-72px) scale(.92)}
-  .reveal-ready [data-reveal=photo][data-reveal-side=end]{transform:translateX(72px) scale(.92)}
   /* Metin parçaları çizgiye birlikte gelse de sırayla, dönüşümlü yönlerden gelir. */
   .reveal-ready [data-reveal=part]{--reveal-stagger:110ms;--reveal-offset:0ms}
   .reveal-ready [data-reveal=from-start],.reveal-ready [data-reveal=from-end],.reveal-ready [data-reveal=rise]{--reveal-offset:0ms}

@@ -138,3 +138,9 @@ Tarayıcı sekmesinde `favicon.png` (512×512 RGBA) kullanılır. Simge, küçü
 Gerekli GitHub Secrets (Settings → Secrets and variables → Actions): `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`; FTP hesabının kök dizini sitenin belge kökü değilse `FTP_SERVER_DIR` (ör. `public_html/`). FTP hesabı cPanel → FTP Accounts'tan, dizini yalnızca bu sitenin belge kökü olacak şekilde açılır.
 
 `.htaccess` tüm adresleri `https://prestijevdenevenakliyat.com` altında toplar, HTML'i önbelleğe almaz, `?v=` ile sürümlenen CSS/JS'i 1 yıl, görsel ve fontları 30 gün önbellekte tutar.
+
+## Performans (PageSpeed)
+
+- **CSS tek dosya:** sayfalar yalnızca `site.css` yükler. `site.css`, kaynak CSS dosyalarından (`styles.css`, `hero.css` … `discovery.css`) `python tools/build_districts.py` ile üretilir — CSS düzenledikten sonra betiği çalıştırın, `site.css`'i elle düzenlemeyin. Sıra `CSS_BUNDLE` listesindedir.
+- **Görseller:** büyük referans PNG'lerin yalnızca gösterilen alanları `assets/opt/*.webp` olarak kesilir; hero `srcset` ile 960/1280/1672 WebP kullanır; keşif fontları WOFF2 alt kümesidir. Hepsi `python tools/optimize_assets.py` ile üretilir (yeni bir referans PNG kırpıntısı eklendiğinde yeniden çalıştırın).
+- **Harita:** Leaflet (JS + CSS) ilk harita ekrana yaklaşınca `maps.js` tarafından yüklenir.

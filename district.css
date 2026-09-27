@@ -7,13 +7,13 @@
 .district-breadcrumb a:hover{color:#ffe29b;text-decoration:underline}
 .district-breadcrumb [aria-current]{color:#f4c860;font-weight:700}
 .district-eyebrow{margin:0 0 10px;font:700 14px/1.2 Arial,sans-serif;letter-spacing:2px;color:#efc45d}
-.district h2{margin:0 0 16px;font-family:Montserrat,Arial,sans-serif;font-size:clamp(26px,2.3vw,40px);font-weight:800;line-height:1.2;letter-spacing:-.5px;color:#f8f8f8}
+.district h2{margin:0 0 16px;font-family:Montserrat,'Montserrat Fallback',Arial,sans-serif;font-size:clamp(26px,2.3vw,40px);font-weight:800;line-height:1.2;letter-spacing:-.5px;color:#f8f8f8}
 .district-intro{max-width:1080px}
 .district-intro p{margin:0 0 14px;font-size:19px;line-height:1.6;color:#cfcbc2}
 .district-intro .district-lead{font-size:21px;color:#f1ece0}
 .district-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:34px 0}
 .district-card{padding:28px 30px;border:1px solid #c3a25555;border-radius:16px;background:linear-gradient(140deg,#14130d,#060605)}
-.district-card h3{margin:0 0 16px;font-family:Montserrat,Arial,sans-serif;font-size:clamp(20px,1.5vw,25px);line-height:1.25;color:#fff}
+.district-card h3{margin:0 0 16px;font-family:Montserrat,'Montserrat Fallback',Arial,sans-serif;font-size:clamp(20px,1.5vw,25px);line-height:1.25;color:#fff}
 .district-list{display:grid;gap:12px;list-style:none;margin:0;padding:0}
 .district-list li{position:relative;padding-left:30px;font-size:18px;line-height:1.5;color:#cfcbc2}
 .district-list li:before{content:'';position:absolute;left:2px;top:.45em;width:14px;height:8px;border-left:2.5px solid #f2c762;border-bottom:2.5px solid #f2c762;transform:rotate(-45deg)}

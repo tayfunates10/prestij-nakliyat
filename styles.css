@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700&display=swap');
-
-:root{color-scheme:dark;--gold:#f7c54b;--gold-bright:#ffe59a;--black:#030303;font-family:'Roboto Condensed','Arial Narrow',Arial,sans-serif;background:var(--black);color:#f4f4f4}
+:root{color-scheme:dark;--gold:#f7c54b;--gold-bright:#ffe59a;--black:#030303;font-family:'Roboto Condensed','Roboto Condensed Fallback','Arial Narrow',Arial,sans-serif;background:var(--black);color:#f4f4f4}
 *{box-sizing:border-box}
 html{min-width:320px;scroll-behavior:smooth}
 body{margin:0;min-height:100svh;background:#030303}

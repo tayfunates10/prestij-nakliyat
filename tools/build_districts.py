@@ -167,6 +167,22 @@ def esc(text):
     return html.escape(text, quote=True)
 
 
+# Tüm sayfaların stilleri tek dosyada (PageSpeed: tek oluşturma engelleyici istek). Sıra = eski <link> sırası (cascade korunur);
+# kaynak dosyalar düzenlenir, site.css bu betikle üretilir. Leaflet CSS'i haritayla birlikte maps.js yükler.
+CSS_BUNDLE = ["fonts", "styles", "hero", "services", "trust", "about", "process", "coverage", "contact", "footer", "gallery",
+              "layout", "refinements", "district", "backdrop", "reveal", "discovery"]
+
+
+def bundle_css():
+    parts = []
+    for name in CSS_BUNDLE:
+        css = re.sub(r"/\*.*?\*/", "", read(f"{name}.css"), flags=re.S)
+        lines = [line.strip() for line in css.splitlines() if line.strip()]
+        parts.append(f"/* {name}.css */\n" + "\n".join(lines))
+    write("site.css", "/* Üretilen dosya: python tools/build_districts.py — kaynak CSS dosyalarını düzenleyin. */\n"
+          + "\n".join(parts) + "\n")
+
+
 def read(name):
     return (ROOT / name).read_text(encoding="utf-8")
 
@@ -337,8 +353,9 @@ def area_links(current=None):
 
 
 def district_page(d, parts, version):
-    styles = ["styles", "hero", "services", "about", "coverage", "contact", "footer", "layout", "refinements", "district", "backdrop", "reveal", "discovery"]
-    css = "\n".join(f'  <link rel="stylesheet" href="{s}.css?v={version}">' for s in styles)
+    css = ('  <link rel="preload" href="assets/fonts/roboto-condensed-variable.woff2" as="font" type="font/woff2" crossorigin>\n'
+           '  <link rel="preload" href="assets/fonts/montserrat-variable.woff2" as="font" type="font/woff2" crossorigin>\n'
+           f'  <link rel="stylesheet" href="site.css?v={version}">')
     services = "\n            ".join(
         f"<li><strong>{n}:</strong> {t}</li>" for n, t in [
             ("Evden Eve Nakliyat", f"{d['locative']} ve {d['ablative']} Zonguldak geneline ev taşıma."),
@@ -361,7 +378,7 @@ def district_page(d, parts, version):
   <meta name="theme-color" content="#030303">
   {district_seo(d)}
 {css}
-  <link rel="preload" as="image" href="assets/hero-coast-fiat.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/opt/hero-coast-fiat-1280.webp" imagesrcset="assets/opt/hero-coast-fiat-960.webp 960w, assets/opt/hero-coast-fiat-1280.webp 1280w, assets/opt/hero-coast-fiat-1672.webp 1672w" imagesizes="(max-width: 650px) 176vw, 100vw" fetchpriority="high">
   <script src="script.js?v={version}" defer></script>
   <script src="reveal.js?v={version}" defer></script>
   <script src="services.js?v={version}" defer></script>
@@ -374,7 +391,7 @@ def district_page(d, parts, version):
     <section class="hero hero--district" aria-label="{d['name']} evden eve nakliyat">
       <div class="hero-slides">
         <article class="hero-slide is-current">
-          <img class="hero-image" src="assets/hero-coast-fiat.png" alt="Gün batımında sahil yolunda, kasası siyah ve altın Prestij Nakliyat tasarımıyla kaplanmış beyaz Fiat Ducato kamyonet" fetchpriority="high" width="1672" height="941">
+          <img class="hero-image" src="assets/opt/hero-coast-fiat-1280.webp" srcset="assets/opt/hero-coast-fiat-960.webp 960w, assets/opt/hero-coast-fiat-1280.webp 1280w, assets/opt/hero-coast-fiat-1672.webp 1672w" sizes="(max-width: 650px) 176vw, 100vw" alt="Gün batımında sahil yolunda, kasası siyah ve altın Prestij Nakliyat tasarımıyla kaplanmış beyaz Fiat Ducato kamyonet" fetchpriority="high" width="1672" height="941">
           <div class="hero-shade" aria-hidden="true"></div>
           <div class="hero-copy">
             <p class="hero-eyebrow"><svg aria-hidden="true"><use href="#icon-pin"/></svg>ZONGULDAK · {d['upper']}</p>
@@ -506,7 +523,8 @@ def llms(index):
 
 def main():
     index = read("index.html")
-    version = re.search(r'styles\.css\?v=([\w-]+)', index).group(1)
+    version = re.search(r'site\.css\?v=([\w-]+)', index).group(1)
+    bundle_css()
     parts = {
         "header": link_to_home(between(index, '<header class="site-header">', "</header>")),
         "icons": between(index, '<svg class="icon-library"', "</symbol>\n    </svg>"),

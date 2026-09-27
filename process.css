@@ -4,7 +4,7 @@
 .process-heading{position:relative;min-height:365px;max-width:910px;width:48%;padding:0 0 55px}
 .process-eyebrow{display:inline-block;position:relative;border:1px solid #e5b545;border-radius:30px;color:#f6ca64;font-family:Arial,sans-serif;font-size:21px;font-weight:700;letter-spacing:3px;padding:11px 25px;margin:0 0 16px;box-shadow:0 0 17px #e6ad3225,inset 0 0 10px #dcac2520}
 .process-eyebrow:after{content:'';position:absolute;bottom:-1px;left:30%;width:46%;height:2px;background:linear-gradient(90deg,transparent,#ffeaa0,transparent);box-shadow:0 0 10px #ffcf6b77;animation:process-glow 5s ease-in-out infinite}
-.process-heading h2{font-family:Montserrat,Arial,sans-serif;font-size:clamp(32px,2.86vw,57px);font-weight:800;letter-spacing:-1.3px;line-height:1.15;margin:0 0 19px;color:#fafafa}
+.process-heading h2{font-family:Montserrat,'Montserrat Fallback',Arial,sans-serif;font-size:clamp(32px,2.86vw,57px);font-weight:800;letter-spacing:-1.3px;line-height:1.15;margin:0 0 19px;color:#fafafa}
 .process-heading h2>span{display:block;font-size:1.38em;line-height:1.12;letter-spacing:-1.8px;white-space:nowrap}
 .process-intro{font-size:clamp(20px,1.42vw,29px);line-height:1.24;color:#dedee0;margin:0;white-space:nowrap}
 .process-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:40px;list-style:none;padding:0;margin:0;position:relative}
@@ -13,7 +13,7 @@
 .process-number{position:absolute;z-index:1;left:50%;top:-9.8cqw;transform:translateX(-50%);width:21cqw;height:21cqw;min-width:50px;min-height:50px;display:grid;place-items:center;background:linear-gradient(135deg,#fff0b2,#ffd065 48%,#dfa126);border:1px solid #ffe296;border-radius:50%;color:#090700;font-family:Arial,sans-serif;font-size:clamp(22px,8cqw,29px);font-weight:800;box-shadow:0 0 18px #ffcf6b3a,0 2px 5px #0005}
 .process-step-photo{display:block;width:100%;aspect-ratio:337/198;overflow:hidden;border-radius:23px 23px 0 0}
 .process-step-copy{padding:0 27px 19px;flex:1}
-.process-step-copy h3{font-family:Montserrat,Arial,sans-serif;font-size:clamp(21px,1.38vw,28px);font-weight:800;line-height:1.18;letter-spacing:-.5px;margin:0 0 8px;color:#f8f8f8}
+.process-step-copy h3{font-family:Montserrat,'Montserrat Fallback',Arial,sans-serif;font-size:clamp(21px,1.38vw,28px);font-weight:800;line-height:1.18;letter-spacing:-.5px;margin:0 0 8px;color:#f8f8f8}
 .process-step-copy p{font-size:clamp(20px,1.23vw,25px);line-height:1.2;color:#ddd;margin:0}
 .process-next{position:absolute;right:-36px;top:31%;width:30px;height:40px;color:#efb53e;filter:drop-shadow(0 0 5px #e6a62430)}
 .process:before,.process:after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,#ffc44d,transparent 14%,transparent 83%,#ffc64d);box-shadow:0 0 20px #ffb51a80;pointer-events:none;z-index:-1}

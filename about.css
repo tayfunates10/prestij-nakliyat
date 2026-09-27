@@ -7,7 +7,7 @@
 .about-eyebrow>span{position:relative;flex:none;border:1px solid #eabc43;border-radius:24px;padding:4px 16px}
 .about-eyebrow:before,.about-eyebrow:after{content:'';height:2px;background:linear-gradient(90deg,transparent,#ffdb72,#fff1ba,#e5ab2f);box-shadow:0 0 8px #efb42d50}
 .about-eyebrow:before{width:12px}.about-eyebrow:after{flex:1}
-.about-copy h2{font-family:'Roboto Condensed','Arial Narrow',Arial,sans-serif;font-size:clamp(40px,3.78vw,64px);font-weight:700;line-height:1.12;letter-spacing:-.7px;margin:0 0 12px;color:#fafafa}
+.about-copy h2{font-family:'Roboto Condensed','Roboto Condensed Fallback','Arial Narrow',Arial,sans-serif;font-size:clamp(40px,3.78vw,64px);font-weight:700;line-height:1.12;letter-spacing:-.7px;margin:0 0 12px;color:#fafafa}
 .about-copy h2>span{display:block}
 .about-title-rule{display:block;width:107px;height:2px;background:linear-gradient(90deg,#ffefaf,#cb931e,transparent);margin-bottom:17px;box-shadow:0 0 10px #eabc3d22}
 .about-description{font-size:clamp(21px,1.6vw,27px);line-height:1.32;color:#d5d5d7;margin:0 0 43px}
@@ -38,7 +38,7 @@
 .about-cta-icon{display:grid;place-items:center;box-sizing:border-box;width:78px;height:78px;border:2px solid #e2bc5c;border-radius:50%;background:#0f0c06;color:#f4c860}
 .about-cta-icon svg{width:38px;height:38px}
 .about-cta-eyebrow{margin:0 0 8px;color:#d4ad53;font-size:14px;font-weight:700;letter-spacing:3px}
-.about-cta h3{margin:0 0 8px;color:#fff;font-family:Montserrat,Arial,sans-serif;font-size:clamp(22px,1.9vw,30px);line-height:1.25}
+.about-cta h3{margin:0 0 8px;color:#fff;font-family:Montserrat,'Montserrat Fallback',Arial,sans-serif;font-size:clamp(22px,1.9vw,30px);line-height:1.25}
 .about-cta-copy>p:last-child{margin:0;max-width:720px;color:#c9c5ba;font-size:18px;line-height:1.5}
 .about-cta-actions{display:flex;flex-direction:column;gap:12px;min-width:290px}
 .about-cta-actions .hero-button{flex:none;min-height:60px;padding:12px 20px;border-radius:14px;font-size:18px}

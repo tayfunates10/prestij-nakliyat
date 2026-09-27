@@ -1,10 +1,12 @@
 /* Tüm sayfalarda ortak arka plan deseni: heronun altından footer'a kadar.
    Desen #site-content (main) arkasındadır; hero opak olduğu için desen onun altından başlar, footer main dışında kalır.
-   Desen dosyası: assets/moving-pattern.svg (tools/make_pattern.py üretir). Görünürlük: --backdrop-strength. */
+   Desen dosyası: assets/moving-pattern.svg (tools/make_pattern.py üretir). Görünürlük: --backdrop-strength.
+   Katmanlar main'in en üstünden başlar (inset:0); başlangıç --hero-end ile yalnızca maske ve arka plan konumunda uygulanır:
+   script.js değeri sonradan yazınca yalnızca boyama değişir, düzen kaymaz (CLS). */
 :root{--backdrop-strength:.2}
 #site-content{position:relative;isolation:isolate}
-#site-content:before{content:'';position:absolute;inset:var(--hero-end,0px) 0 0;z-index:-1;pointer-events:none;background:url(assets/moving-pattern.svg) 50% 0/720px repeat;opacity:var(--backdrop-strength);-webkit-mask-image:linear-gradient(180deg,#0000,#000 150px),linear-gradient(90deg,#0009,#000 22%,#000 78%,#0009);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#0000,#000 150px),linear-gradient(90deg,#0009,#000 22%,#000 78%,#0009);mask-composite:intersect}
-#site-content:after{content:'';position:absolute;inset:var(--hero-end,0px) 0 0;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#0000,#000 150px);mask-image:linear-gradient(180deg,#0000,#000 150px);background:radial-gradient(ellipse 60% 40% at 0 35%,#6b4a0a14,transparent 70%),radial-gradient(ellipse 55% 35% at 100% 70%,#6b4a0a12,transparent 70%)}
+#site-content:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url(assets/moving-pattern.svg) 50% var(--hero-end,0px)/720px repeat;opacity:var(--backdrop-strength);-webkit-mask-image:linear-gradient(180deg,#0000 var(--hero-end,0px),#000 calc(var(--hero-end,0px) + 150px)),linear-gradient(90deg,#0009,#000 22%,#000 78%,#0009);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#0000 var(--hero-end,0px),#000 calc(var(--hero-end,0px) + 150px)),linear-gradient(90deg,#0009,#000 22%,#000 78%,#0009);mask-composite:intersect}
+#site-content:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#0000 var(--hero-end,0px),#000 calc(var(--hero-end,0px) + 150px));mask-image:linear-gradient(180deg,#0000 var(--hero-end,0px),#000 calc(var(--hero-end,0px) + 150px));background:radial-gradient(ellipse 60% 40% at 0 35%,#6b4a0a14,transparent 70%) 0 var(--hero-end,0px)/100% calc(100% - var(--hero-end,0px)) no-repeat,radial-gradient(ellipse 55% 35% at 100% 70%,#6b4a0a12,transparent 70%) 0 var(--hero-end,0px)/100% calc(100% - var(--hero-end,0px)) no-repeat}
 
 /* Hero ile altındaki alan arasında yumuşak geçiş: görselin alt kısmı sayfa zeminine erir,
    desen hero bittikten sonra 360px boyunca yavaşça belirir (--hero-end script.js ile ölçülür). */

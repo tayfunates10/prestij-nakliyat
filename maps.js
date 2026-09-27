@@ -12,11 +12,25 @@
     ['Devrek',41.2190,31.9560,'right'],
     ['Gökçebey',41.3060,32.1400,'right'],
   ];
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+  // Leaflet (~150 KB) ilk harita ekrana yaklaşınca yüklenir. CSS'i site.css'in önüne eklenir: haritayı özelleştiren
+  // kurallarımız (refinements.css) eskisi gibi baskın kalır.
+  const version = (document.querySelector('script[src*="maps.js"]')?.src.match(/\?v=[\w-]+/) || [''])[0];
+  let leaflet;
+  const loadLeaflet = () => leaflet || (leaflet = new Promise(resolve => {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = `assets/vendor/leaflet/leaflet.css${version}`;
+    document.head.insertBefore(css, document.querySelector('link[href*="site.css"]'));
+    const js = document.createElement('script');
+    js.src = `assets/vendor/leaflet/leaflet.js${version}`;
+    js.onload = js.onerror = () => resolve(window.L);
+    document.head.append(js);
+  }));
+  const observer = new IntersectionObserver(entries => entries.forEach(async entry => {
     if (!entry.isIntersecting) return;
     observer.unobserve(entry.target);
     const element = entry.target;
-    if (!window.L) { element.innerHTML='<a class="map-fallback" href="https://www.openstreetmap.org/#map=14/41.4870/31.8384">Kilimli haritasını aç</a>'; return; }
+    if (!await loadLeaflet()) { element.innerHTML='<a class="map-fallback" href="https://www.openstreetmap.org/#map=14/41.4870/31.8384">Kilimli haritasını aç</a>'; return; }
     const map=L.map(element,{scrollWheelZoom:true,zoomControl:true,zoomSnap:element.dataset.districts?0.25:1});
     if (!element.dataset.districts) map.setView(center,Number(element.dataset.zoom));
     map.zoomControl.setPosition('topleft');
@@ -52,6 +66,6 @@
     let notice;
     layer.on('tileerror',()=>{if(notice)return;notice=document.createElement('p');notice.className='map-note';notice.textContent='Harita yüklenemedi. Konumu harita bağlantısından açabilirsiniz.';element.after(notice);});
     layer.on('tileload',()=>{if(notice){notice.remove();notice=null;}});
-  }),{rootMargin:'0px'});
+  }),{rootMargin:'400px 0px'});
   configs.forEach(({id,zoom,districts})=>{const el=document.getElementById(id);if(el){el.dataset.zoom=zoom;if(districts)el.dataset.districts='1';observer.observe(el);}});
 })();
