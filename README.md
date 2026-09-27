@@ -122,3 +122,9 @@ Ana sayfadaki `#ucretsiz-kesif`, masaüstünde metin/avantajlar, keşif fotoğra
 Fotoğraf, kullanıcı tarafından verilen masaüstü/mobil kaynaklarından SVG görüntü alanlarıyla gösterilir; kaynak PNG dosyaları değiştirilmemiştir. Ev ve avantaj ikonları eşit ölçülü, ortalanmış SVG vektörlerdir. Teklif düğmesi hover ve klavye odağında altın dolguya geçer; çerçeve dışındaki dekoratif çizgiler ve parlamalar kaldırılmıştır. Başlıklar, açıklamalar, avantaj metinleri ve düğmeler gerçek HTML'dir. Montserrat ve Roboto Condensed fontları lisanslarıyla birlikte yerel olarak saklanır. Telefon, WhatsApp ve mevcut teklif formu bağlantıları korunur.
 
 Yerel çalıştırma: depo klasöründe `python -m http.server 4173 --bind 127.0.0.1`, ardından `http://127.0.0.1:4173/#ucretsiz-kesif`.
+
+## Favicon
+
+Sekme simgesi logodaki altın çatı, yol kıvrımı ve beyaz nakliye kamyonundan oluşan sade bir vektör işarettir. Küçük boyutta okunamayan marka yazıları simgeye dahil edilmez; ana logo değiştirilmemiştir.
+
+Kaynak `favicon.svg`; uyumluluk dosyaları 16/32/48 piksel PNG, üç boyutu içeren `favicon.ico` ve 180×180 `assets/apple-touch-icon.png` dosyasıdır. Raster sürümler SVG'den doğrudan ilgili boyuta çizilmiştir. Tüm HTML sayfaları ve `tools/build_districts.py` aynı sürümlü bağlantıları içerir.

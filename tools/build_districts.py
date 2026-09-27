@@ -257,8 +257,12 @@ def seo_head(title, description, url, nodes, og_type="website"):
   <meta name="twitter:title" content="{esc(title)}">
   <meta name="twitter:description" content="{esc(description)}">
   <meta name="twitter:image" content="{BASE}/assets/og-image.jpg">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico?v=20260927-1" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="assets/favicon-16x16.png?v=20260927-1" type="image/png" sizes="16x16">
+  <link rel="icon" href="assets/favicon-32x32.png?v=20260927-1" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/favicon-48x48.png?v=20260927-1" type="image/png" sizes="48x48">
+  <link rel="icon" href="favicon.svg?v=20260927-1" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20260927-1" sizes="180x180">
   <script type="application/ld+json">{graph}</script>
   <!-- seo:end -->"""
 

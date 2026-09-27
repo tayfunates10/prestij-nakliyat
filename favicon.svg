@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#000"/><text x="8" y="25" font-family="Arial" font-weight="bold" font-size="26" fill="#f7c54b">P</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Prestij Nakliyat — ev ve nakliye kamyonu</title>
+  <rect width="64" height="64" rx="13" fill="#080806"/>
+  <!-- The roof, road and truck retain the original logo's three key shapes. -->
+  <path d="m7 26 18-17 15 12v-7h5v17L25 15 11 28Z" fill="#f7ca55"/>
+  <path d="M22 21h4v4h-4Zm6 0h4v4h-4ZM22 27h4v4h-4Zm6 0h4v4h-4Z" fill="#f7ca55"/>
+  <path d="M18 32C3 42 5 51 26 54h31C23 60 5 55 4 46 3 40 9 35 18 32Z" fill="#f7ca55"/>
+  <path d="M19 31 43 24v23H19Z" fill="#080806" stroke="#f7f7f2" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="m22 42 18-11v5L22 45Z" fill="#f7ca55"/>
+  <path d="M44 32h8l7 10v8H43V33Z" fill="#f7f7f2"/>
+  <path d="M47 35h4l5 8h-9Z" fill="#10120f"/>
+  <path d="M55 46h4v3h-4Z" fill="#f7ca55"/>
+  <path d="M19 48h39" stroke="#f7f7f2" stroke-width="2.5"/>
+  <circle cx="26" cy="50" r="4.5" fill="#080806" stroke="#f7f7f2" stroke-width="2.5"/>
+  <circle cx="51" cy="50" r="4.5" fill="#080806" stroke="#f7f7f2" stroke-width="2.5"/>
+</svg>
