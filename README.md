@@ -114,3 +114,11 @@ Hedef anahtar kelime: **zonguldak evden eve nakliyat**. İlçe aramaları için 
 Tüm sayfalarda hero'nun altından footer'a kadar silik, altın çizgili taşınma ikonlarından oluşan bir desen vardır (koli, kamyon, ev, kanepe, taşıma arabası, bant, anahtar, gardırop, "bu taraf yukarı" okları, konum işareti vb.). Desen `assets/moving-pattern.svg` dosyasındadır, kesintisiz tekrarlanır ve `python tools/make_pattern.py` ile yeniden üretilir. Stiller `backdrop.css` dosyasındadır; görünürlük `--backdrop-strength` değişkeniyle ayarlanır (masaüstü .13, telefon .11). Desenin görünmesi için bölümlerin düz siyah zeminleri `backdrop.css` içinde şeffaf yapılmıştır; kartlar ve dekoratif ışımalar korunmuştur. Yeni bir bölüm eklerken düz siyah zemin vermeyin.
 
 Hero ile altındaki alan arasındaki geçiş yumuşaktır: hero görselinin alt kısmı sayfa zeminine erir (`.hero-slide:after`), desen ve sıcak ışıma hero bittikten sonra 150 piksel boyunca yavaşça belirir. Hero'nun bittiği nokta `script.js` tarafından ölçülüp `--hero-end` değişkenine yazılır; JavaScript yoksa desen hero'nun arkasında kalır. İlçe sayfalarındaki üst altın çizgi ve köşe ışıması bu geçiş için kaldırıldı.
+
+## Ücretsiz keşif — duyarlı referans tasarımı
+
+Ana sayfadaki `#ucretsiz-kesif`, masaüstünde metin/avantajlar, keşif fotoğrafı ve iletişim düğmelerinden oluşur. 900 piksel ve altında içerik dikey sıralanır; fotoğraf düğmelerin altına geçer. Tasarım `discovery.css` içinde diğer sayfalardaki keşif alanlarından bağımsızdır.
+
+Fotoğraf, kullanıcı tarafından verilen masaüstü/mobil kaynaklarından SVG görüntü alanlarıyla gösterilir; kaynak PNG dosyaları değiştirilmemiştir. Ev ve avantaj ikonları eşit ölçülü, ortalanmış SVG vektörlerdir. Teklif düğmesi hover ve klavye odağında altın dolguya geçer; çerçeve dışındaki dekoratif çizgiler ve parlamalar kaldırılmıştır. Başlıklar, açıklamalar, avantaj metinleri ve düğmeler gerçek HTML'dir. Montserrat ve Roboto Condensed fontları lisanslarıyla birlikte yerel olarak saklanır. Telefon, WhatsApp ve mevcut teklif formu bağlantıları korunur.
+
+Yerel çalıştırma: depo klasöründe `python -m http.server 4173 --bind 127.0.0.1`, ardından `http://127.0.0.1:4173/#ucretsiz-kesif`.
