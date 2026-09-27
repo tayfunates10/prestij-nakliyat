@@ -73,7 +73,7 @@ Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve `https://ins
 
 ## Galeri
 
-Hizmet Bölgemiz ile SSS/teklif/iletişim alanları arasına üç kullanıcı fotoğrafından oluşan `#galeri` bölümü eklendi. `assets/gallery/` altındaki kaynak JPEG'ler değiştirilmeden kopyalandı. Her kartın altındaki HTML bandında Prestij Nakliyat, mevcut iletişim numarası ve Zonguldak Merkez bulunur; bu bant fotoğraf dosyasına işlenmemiştir.
+Hizmet Bölgemiz ile SSS/teklif/iletişim alanları arasına dört kullanıcı fotoğrafından oluşan `#galeri` bölümü eklendi. `assets/gallery/` altındaki orijinal fotoğraflar (`<ad>.jpeg`) değiştirilmez. Sayfada kullanılan `<ad>-bantli.jpg` dosyalarının altında logo, iletişim numarası ve Merkez / Zonguldak yazan bant fotoğrafa basılıdır; bu dosyalar `python tools/make_gallery_bands.py` ile orijinallerden üretilir (Pillow ve numpy gerekir). Telefon numarası değişirse betikteki `PHONE` değeri güncellenip betik yeniden çalıştırılmalıdır; yeni fotoğraf eklemek için `PHOTOS` listesine satır eklenir.
 
 Önizlemeler eşit boyda alanlara yerleşir; tıklandığında fotoğrafın tamamı kırpılmadan dialog içinde gösterilir. Önceki/sonraki, yön tuşları, Escape, kapatma düğmesi ve dışarı tıklama desteklenir. Telefon linkleri ayrı tıklanabilir öğelerdir. Masaüstünde dört, tablette iki ve mobilde tek sütundur. Üst menü ve footer galeriye bağlanmıştır.
 
