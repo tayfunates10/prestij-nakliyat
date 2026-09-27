@@ -125,8 +125,8 @@ Yerel çalıştırma: depo klasöründe `python -m http.server 4173 --bind 127.0
 
 ## Favicon
 
-Tarayıcı sekmesinde `favicon.png` (512×512 RGBA) kullanılır. Favicon yalnızca kamyonu içerir: çatı, yol kıvrımı, yazılar ve dış siyah arka plan kaldırılmıştır. Kamyonun kasası, camları ve tekerleklerindeki siyah detaylar korunmuştur. PNG gerçek alfa şeffaflığı içerir ve kamyon ikonun tüm genişliğini kullanır.
+Tarayıcı sekmesinde `favicon.png` (512×512 RGBA) kullanılır. Simge, küçük favicon boyutları için görsel üretme aracıyla özel hazırlanmış, önden görünen bir kamyondur. Beyaz gövde, kalın siyah hatlar, altın vurgular ve sade detaylar kullanır. Arka plan alfa şeffaflığı içerir; yazı, çatı veya yol yoktur. Simge kare alanın yaklaşık %98 genişliğini doldurur; kamyonun hiçbir parçası kırpılmaz.
 
-Kamyon, `assets/logo.png` referansından görsel düzenleme aracıyla ayrıştırılmıştır. Üretim istemi: yalnız kamyonu koru, çatı/yol/yazıları kaldır, dış arka planı şeffaf yap, kamyonun siyah gövde detaylarını koru, yeniden tasarlama. `favicon.svg`, şeffaf PNG'yi içeren dışa aktarma kaynağıdır; tarayıcılar doğrudan PNG kullanır.
+Üretim istemi özeti: referans logonun siyah/beyaz/altın renkleriyle, önden simetrik kamyon kabini; 16–32 pikselde okunacak kalın hatlar ve büyük sade şekiller; şeffaf arka plan; yazısız; kareyi dolduran kompozisyon. Bu özel üretilmiş bir favicon simgesidir, orijinal logodan büyütülmüş bir kırpma değildir.
 
-16/32/48 piksel PNG, çok boyutlu `favicon.ico` ve 180×180 Apple simgesi aynı kaynaktan üretilir. Ana sayfa, galeri, ilçe sayfaları ve üretim şablonu aynı sürümlü bağlantıları kullanır.
+16/32/48 piksel PNG, çok boyutlu `favicon.ico` ve 180×180 Apple simgesi aynı yüksek çözünürlüklü kaynaktan üretilir. `favicon.svg` dışa aktarma kaynağıdır; tüm sayfalar ve ilçe üretim şablonu doğrudan sürümlü PNG bağlantılarını kullanır.
