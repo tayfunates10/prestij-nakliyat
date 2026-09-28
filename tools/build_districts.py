@@ -21,6 +21,9 @@ PHONE_SCHEMA = "+90-552-475-01-67"
 WHATSAPP = "https://wa.me/905524750167"
 ORG_ID = f"{BASE}/#firma"
 SITE_ID = f"{BASE}/#site"
+# Paylaşım önizleme görseli; görsel değişince sürümü artırın (WhatsApp/Facebook önbelleği URL'ye bağlıdır).
+OG_IMAGE = f"{BASE}/assets/og-image.jpg?v=20260928"
+OG_IMAGE_ALT = "Prestij Nakliyat tanıtım görseli: kaplamalı beyaz Fiat Ducato nakliye aracı, Zonguldak hizmet bölgesi haritası, hizmetler ve 0552 475 01 67 telefon numarası"
 SIGNATURE = "Her adımda güvenle taşıyoruz"
 # index.html'deki ücretsiz keşif başlığı; ilçe sayfalarında ilçe adıyla değiştirilir.
 DISCOVERY_TITLE = "Taşınma tarihiniz belli mi?<br><span>Planı birlikte yapalım.</span>"
@@ -265,14 +268,16 @@ def seo_head(title, description, url, nodes, og_type="website"):
   <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(description)}">
   <meta property="og:url" content="{url}">
-  <meta property="og:image" content="{BASE}/assets/og-image.jpg">
+  <meta property="og:image" content="{OG_IMAGE}">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Prestij Nakliyat kaplamalı beyaz Fiat Ducato nakliye aracı, Zonguldak sahil yolunda">
+  <meta property="og:image:alt" content="{esc(OG_IMAGE_ALT)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(title)}">
   <meta name="twitter:description" content="{esc(description)}">
-  <meta name="twitter:image" content="{BASE}/assets/og-image.jpg">
+  <meta name="twitter:image" content="{OG_IMAGE}">
+  <meta name="twitter:image:alt" content="{esc(OG_IMAGE_ALT)}">
   <link rel="icon" href="favicon.ico?v=20260927-7" sizes="16x16 32x32 48x48">
   <link rel="icon" href="assets/favicon-16x16.png?v=20260927-7" type="image/png" sizes="16x16">
   <link rel="icon" href="assets/favicon-32x32.png?v=20260927-7" type="image/png" sizes="32x32">
