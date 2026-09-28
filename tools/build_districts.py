@@ -310,17 +310,29 @@ def home_seo(index):
     return seo_head(title, description, url, nodes)
 
 
+# Google "Resim meta verisi": creator satır içi Organization olmalı (@id referansı "geçersiz nesne türü" sayılıyor);
+# license galerideki görünür kullanım notunu (#gorsel-kullanim), acquireLicensePage iletişim bölümünü gösterir.
+IMAGE_RIGHTS = {
+    "creator": {"@type": "Organization", "name": "Prestij Nakliyat", "url": f"{BASE}/"},
+    "creditText": "Prestij Nakliyat",
+    "copyrightNotice": "© 2026 Prestij Nakliyat. Tüm hakları saklıdır.",
+    "license": f"{BASE}/galeri.html#gorsel-kullanim",
+    "acquireLicensePage": f"{BASE}/#iletisim",
+}
+
+
 def gallery_seo(gallery):
     url = f"{BASE}/galeri.html"
     title = "Galeri – Taşımalarımızdan Kareler | Prestij Nakliyat Zonguldak"
     description = "Prestij Nakliyat galerisi: Zonguldak’taki evden eve nakliyat, paketleme ve taşıma işlerimizden gerçek fotoğraflar."
     images = re.findall(r'<img src="(assets/gallery/[^"]+)" width="(\d+)" height="(\d+)" alt="([^"]+)"', gallery)
+    assert 'id="gorsel-kullanim"' in gallery, "galeri.html'de license adresinin gösterdiği görsel kullanım notu yok"
     nodes = [organization(), website(),
              {"@type": ["CollectionPage", "ImageGallery"], "@id": f"{url}#sayfa", "url": url, "name": title,
               "description": description, "inLanguage": "tr-TR", "isPartOf": {"@id": SITE_ID}, "about": {"@id": ORG_ID},
               "breadcrumb": {"@id": f"{url}#breadcrumb"},
               "image": [{"@type": "ImageObject", "contentUrl": f"{BASE}/{src}", "width": int(w), "height": int(h),
-                         "caption": html.unescape(alt), "creator": {"@id": ORG_ID}} for src, w, h, alt in images]},
+                         "caption": html.unescape(alt), **IMAGE_RIGHTS} for src, w, h, alt in images]},
              breadcrumb(url, [("Ana Sayfa", f"{BASE}/"), ("Galeri", url)])]
     return seo_head(title, description, url, nodes), images
 
