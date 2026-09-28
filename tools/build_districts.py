@@ -31,7 +31,8 @@ DISCOVERY_TITLE = "Taşınma tarihiniz belli mi?<br><span>Planı birlikte yapal�
 ADDRESS_STREET = "Hisararkası Mah. Merkez Evler Sok. No:3/6"
 ADDRESS_DISTRICT = "Kilimli"
 ADDRESS_FULL = f"{ADDRESS_STREET}, {ADDRESS_DISTRICT}/Zonguldak"
-MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Hisararkas%C4%B1+Mah.+Merkez+Evler+Sok.+No%3A3%2F6+Kilimli+Zonguldak"
+# Firmanın Google Maps kaydı (adres bağlantıları, yol tarifi ve şemadaki hasMap).
+MAPS_URL = "https://maps.app.goo.gl/FkS2a55wqvdYeri78"
 ALL_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 HOURS_24_7 = {"@type": "OpeningHoursSpecification", "dayOfWeek": ALL_WEEK, "opens": "00:00", "closes": "23:59"}
 
