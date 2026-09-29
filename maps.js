@@ -1,6 +1,6 @@
 (() => {
   const configs = [{id:'coverage-map',zoom:9,districts:true},{id:'contact-map',zoom:13}];
-  const center = [41.4870,31.8384]; // Kilimli town centre (OSM); street-level location of the business address is not verified.
+  const center = [41.4835594,31.8302742]; // Business pin from https://maps.app.goo.gl/j5zPko2Xv3FaQikd8
   // Approximate district centres; label direction keeps neighbouring names apart.
   const districts = [
     ['Zonguldak Merkez',41.4535,31.7894,'top'],
@@ -30,7 +30,7 @@
     if (!entry.isIntersecting) return;
     observer.unobserve(entry.target);
     const element = entry.target;
-    if (!await loadLeaflet()) { element.innerHTML='<a class="map-fallback" href="https://www.openstreetmap.org/#map=14/41.4870/31.8384">Kilimli haritasını aç</a>'; return; }
+    if (!await loadLeaflet()) { element.innerHTML=`<a class="map-fallback" href="https://www.openstreetmap.org/?mlat=${center[0]}&mlon=${center[1]}#map=14/${center[0]}/${center[1]}">Kilimli haritasını aç</a>`; return; }
     const map=L.map(element,{scrollWheelZoom:true,zoomControl:true,zoomSnap:element.dataset.districts?0.25:1});
     if (!element.dataset.districts) map.setView(center,Number(element.dataset.zoom));
     map.zoomControl.setPosition('topleft');
