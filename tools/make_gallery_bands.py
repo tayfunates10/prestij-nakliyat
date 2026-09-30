@@ -29,6 +29,10 @@ PHOTOS = [
     ("fiat-nakliye-araci", (529, 556), (103, 0)),
     ("fiat-nakliye-araci-istasyon", (1200, 1260), (0, 110)),
     ("korumali-esyalar", (720, 756), (0, 102)),
+    ("paketli-esyalar-ekip", (960, 1008), (0, 274)),
+    ("paketli-esyalar-koli", (960, 1008), (0, 250)),
+    ("paketli-esyalar-kose", (960, 1008), (0, 230)),
+    ("paketli-esyalar-yatak", (1071, 1125), None),
 ]
 
 # 720 x 756 tasarım ölçüleri (px)
