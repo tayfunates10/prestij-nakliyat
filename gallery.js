@@ -7,6 +7,7 @@
   const gallery = document.querySelector('.gallery');
   const dialog = gallery.querySelector('.gallery-dialog');
   const photos = [...gallery.querySelectorAll('.gallery-photo-button img')];
+  photos.forEach(photo => photo.parentElement.style.setProperty('--gallery-thumb', `url("${photo.getAttribute('src')}")`));
   const image = dialog.querySelector('.gallery-viewer-photo>img');
   const counter = dialog.querySelector('.gallery-counter');
   const caption = dialog.querySelector('.gallery-caption');

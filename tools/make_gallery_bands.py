@@ -4,7 +4,9 @@ Kullanım (proje kökünden):  python tools/make_gallery_bands.py
 
 - Kaynak: assets/gallery/<ad>.jpeg (orijinal fotoğraf, değiştirilmez)
 - Çıktı:  assets/gallery/<ad>-bantli.jpg
-- Tasarım 720 px genişlikli bir kart üzerinde ölçülmüştür; her çıktı kendi genişliğine göre ölçeklenir.
+- Fotoğraflar kırpılmaz; çıktı kaynağın tamamıdır (en fazla MAX_WIDTH genişliğe küçültülür).
+- Bant 720 x 756 px bir kart üzerinde ölçülmüştür. Ölçek fotoğrafın kısa kenarına göre seçilir; logo sol alta,
+  telefon ve konum sağ alta sabitlenir, böylece dikey ve yatay fotoğraflarda aynı görünür.
 - Telefon değişirse PHONE değerini güncelleyip betiği yeniden çalıştırın.
 Gereksinim: Pillow, numpy.
 """
@@ -22,18 +24,18 @@ LOGO_BOX = (55, 447, 488, 555)  # Sitedeki logo görüntü alanı (viewBox="55 4
 PHONE = "0552 475 01 67"
 LOCATION = "Merkez / Zonguldak"
 
-# Kart oranı yaklaşık 4 / 4.2 (refinements.css .gallery-photo-button).
-# (kaynak, çıktı boyutu, kırpma: kaynağın solundan/üstünden piksel; None = ortala)
+# Galeri sırası; kaynak assets/gallery/<ad>.jpeg
 PHOTOS = [
-    ("arac-ici-paketleme", (720, 756), (0, 102)),
-    ("fiat-nakliye-araci", (529, 556), (103, 0)),
-    ("fiat-nakliye-araci-istasyon", (1200, 1260), (0, 110)),
-    ("korumali-esyalar", (720, 756), (0, 102)),
-    ("paketli-esyalar-ekip", (960, 1008), (0, 274)),
-    ("paketli-esyalar-koli", (960, 1008), (0, 250)),
-    ("paketli-esyalar-kose", (960, 1008), (0, 230)),
-    ("paketli-esyalar-yatak", (1071, 1125), None),
+    "arac-ici-paketleme",
+    "fiat-nakliye-araci",
+    "fiat-nakliye-araci-istasyon",
+    "korumali-esyalar",
+    "paketli-esyalar-ekip",
+    "paketli-esyalar-koli",
+    "paketli-esyalar-kose",
+    "paketli-esyalar-yatak",
 ]
+MAX_WIDTH = 1200
 
 # 720 x 756 tasarım ölçüleri (px)
 W, H = 720, 756
@@ -74,24 +76,25 @@ def draw_text(text, f, track):
     return mask.crop(mask.getbbox())
 
 
-def crop(photo, size, offset):
-    """Kaynağı çıktı oranında kırpar ve çıktı boyutuna ölçekler."""
+def fit(photo):
+    """Kaynağı kırpmadan, en fazla MAX_WIDTH genişliğe küçültür."""
     w, h = photo.size
-    out_w, out_h = size
-    scale = min(w / out_w, h / out_h)
-    cw, ch = round(out_w * scale), round(out_h * scale)
-    x = (w - cw) // 2 if offset is None else min(offset[0], w - cw)
-    y = (h - ch) // 2 if offset is None else min(offset[1], h - ch)
-    return photo.crop((x, y, x + cw, y + ch)).resize(size, Image.LANCZOS)
+    if w <= MAX_WIDTH:
+        return photo
+    return photo.resize((MAX_WIDTH, round(h * MAX_WIDTH / w)), Image.LANCZOS)
 
 
 def band(img):
     out_w, out_h = img.size
-    k = out_w / W
+    k = min(out_w / W, out_h / H)
     a = np.asarray(img).astype(float)
+    # Tasarım koordinatları: soldaki öğeler sola, sağdakiler sağa, hepsi alta sabitlenir.
+    left = lambda x: x * k
+    right_ = lambda x: out_w - (W - x) * k
+    bottom = lambda y: out_h - (H - y) * k
 
     # Alt geçiş
-    ys = np.arange(out_h) / k
+    ys = H - (out_h - np.arange(out_h)) / k
     alpha = np.interp(ys, [y for y, _ in GRADIENT], [o for _, o in GRADIENT])[:, None, None]
     a = a * (1 - alpha) + BAND_COLOR * alpha
 
@@ -100,7 +103,7 @@ def band(img):
     lw = round(LOGO_W * k)
     lh = round(lw * logo.height / logo.width)
     logo = np.asarray(logo.resize((lw, lh), Image.LANCZOS)).astype(float)
-    x0, y0 = round(LOGO_X * k), round(LOGO_Y * k)
+    x0, y0 = round(left(LOGO_X)), round(bottom(LOGO_Y))
     region = a[y0:y0 + lh, x0:x0 + lw]
     a[y0:y0 + lh, x0:x0 + lw] = np.maximum(region, logo[:region.shape[0], :region.shape[1]])
 
@@ -113,12 +116,12 @@ def band(img):
         f = fit_font(text, ink_h, weight, k)
         ink = draw_text(text, f, track * k * SS)
         mask = Image.new("L", (out_w * SS, out_h * SS), 0)
-        mask.paste(ink, (round((right + 1) * k * SS) - ink.width, round(top * k * SS)))
+        mask.paste(ink, (round(right_(right + 1) * SS) - ink.width, round(bottom(top) * SS)))
         layers.append((mask, color))
 
     pin = Image.new("L", (out_w * SS, out_h * SS), 0)
     d = ImageDraw.Draw(pin)
-    px, py, pw, ph = PIN_X * k * SS, PIN_Y * k * SS, PIN_W * k * SS, PIN_H * k * SS
+    px, py, pw, ph = right_(PIN_X) * SS, bottom(PIN_Y) * SS, PIN_W * k * SS, PIN_H * k * SS
     stroke = max(1, round(2.2 * k * SS))
     cx, r = px + pw / 2, pw / 2 - stroke / 2
     cy = py + r + stroke / 2
@@ -140,9 +143,9 @@ def band(img):
 
 
 def main():
-    for name, size, offset in PHOTOS:
+    for name in PHOTOS:
         src = Image.open(GALLERY / f"{name}.jpeg").convert("RGB")
-        out = band(crop(src, size, offset))
+        out = band(fit(src))
         out.save(GALLERY / f"{name}-bantli.jpg", quality=88, optimize=True, progressive=True)
         print(f"{name}-bantli.jpg {out.size[0]}x{out.size[1]}")
 
