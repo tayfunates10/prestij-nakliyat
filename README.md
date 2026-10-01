@@ -69,7 +69,7 @@ Form ad, Türkiye telefon numarası, çıkış/varış adresi ve isteğe bağlı
 
 Referans düzenine göre logo, hizmet bağlantıları, kurumsal alan, hizmet bölgeleri, sosyal medya ikonları ve el yazısı slogan eklendi. Hizmet düğmeleri mevcut detay pencerelerini açar; kurumsal bağlantılar hazır bölümlere gider. Bölge bağlantıları hizmet bölgesi alanını açar. Logo sayfa başına döner. Alt satırda 2026 telif bilgisi ve hizmet sloganları yer alır.
 
-Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve `https://instagram.com` adresine bağlanır; kullanıcı hesap adresini daha sonra değiştirecektir. Galeri bağlantısı `#galeri` bölümüne gider. El yazısı `assets/coverage-reference.png` içindeki footer görselinden alınır.
+Kullanıcının isteğiyle yalnızca Instagram ikonu gösterilir ve firmanın hesabına (`https://www.instagram.com/ferhatackgz9/`) bağlanır. Galeri bağlantısı `#galeri` bölümüne gider. El yazısı `assets/coverage-reference.png` içindeki footer görselinden alınır.
 
 ## Galeri
 
@@ -103,7 +103,7 @@ Hedef anahtar kelime: **zonguldak evden eve nakliyat**. İlçe aramaları için 
 - Hizmet Bölgemiz etiketleri ve footer bölge bağlantıları ilçe sayfalarına gider (iç bağlantı).
 - **Tek kaynak:** `python tools/build_districts.py` ilçe sayfalarını, `index.html` / `galeri.html` içindeki `<!-- seo:start -->…<!-- seo:end -->` bloğunu (title, description, canonical, Open Graph, JSON-LD), `sitemap.xml`, `robots.txt` ve `llms.txt` dosyalarını yeniden üretir. Header, footer veya SSS değiştikten sonra betiği çalıştırın; ilçe sayfalarını ve SEO bloğunu elle düzenlemeyin.
 - JSON-LD: `MovingCompany` (telefon, Zonguldak adresi, hizmet bölgeleri, 7/24 iletişim, hizmet kataloğu), `WebSite`, `WebPage`, `FAQPage` (sayfadaki görünür sorularla birebir), ilçe sayfalarında `Service` + `BreadcrumbList`, galeride `ImageGallery`.
-- E-posta gerçek olmadığı için yapısal veriye eklenmedi. Instagram hesabı gelince `organization()` içine `sameAs` olarak eklenmeli. Açık sokak adresi yoktur; Google İşletme Profili'nde hizmet bölgesi işletmesi olarak aynı telefon ve bölgeler kullanılmalıdır.
+- E-posta gerçek olmadığı için yapısal veriye eklenmedi. Instagram hesabı `organization()` içinde `sameAs` olarak yer alır (`INSTAGRAM_URL`). Açık sokak adresi yoktur; Google İşletme Profili'nde hizmet bölgesi işletmesi olarak aynı telefon ve bölgeler kullanılmalıdır.
 - `robots.txt` arama motorlarına ve yapay zekâ tarayıcılarına (GPTBot, ClaudeBot, PerplexityBot, Google-Extended vb.) izin verir; `tools/` ve `.md` dosyalarını kapatır. `llms.txt` firmanın özetini, hizmetleri, ilçe sayfalarını ve SSS'yi yapay zekâ motorları için sade metinle sunar.
 - Paylaşım görseli `assets/og-image.jpg` (1200×630), logo `assets/logo.png` (600×600), `favicon.svg` ve `assets/apple-touch-icon.png` eklendi.
 - Galeri sayfasında H1 artık "Tüm Galerimiz" başlığıdır; hero başlığı H2'ye çevrildi (görünüm değişmedi). Ana sayfa hero üst etiketi "ZONGULDAK EVDEN EVE NAKLİYAT" oldu.
