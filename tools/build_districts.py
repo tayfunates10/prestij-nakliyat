@@ -33,6 +33,7 @@ ADDRESS_DISTRICT = "Kilimli"
 ADDRESS_FULL = f"{ADDRESS_STREET}, {ADDRESS_DISTRICT}/Zonguldak"
 # Firmanın Google Maps kaydı (adres bağlantıları, yol tarifi ve şemadaki hasMap).
 MAPS_URL = "https://maps.app.goo.gl/FkS2a55wqvdYeri78"
+INSTAGRAM_URL = "https://www.instagram.com/ferhatackgz9/"
 ALL_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 HOURS_24_7 = {"@type": "OpeningHoursSpecification", "dayOfWeek": ALL_WEEK, "opens": "00:00", "closes": "23:59"}
 
@@ -223,6 +224,7 @@ def organization():
         "address": {"@type": "PostalAddress", "streetAddress": ADDRESS_STREET, "addressLocality": ADDRESS_DISTRICT,
                     "addressRegion": "Zonguldak", "addressCountry": "TR"},
         "hasMap": MAPS_URL,
+        "sameAs": [INSTAGRAM_URL],
         "openingHoursSpecification": [HOURS_24_7],
         "areaServed": [{"@type": "AdministrativeArea", "name": "Zonguldak"}]
         + [{"@type": "City", "name": d["place"], "url": page_url(d)} for d in DISTRICTS],
